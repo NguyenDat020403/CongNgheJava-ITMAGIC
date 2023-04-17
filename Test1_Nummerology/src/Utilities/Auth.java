@@ -15,12 +15,10 @@ public class Auth {
     
 
     public static User user = null;
-    public static TaiKhoan taiKhoan = null;
     
     
     public static void clear() {
         Auth.user = null;
-        Auth.taiKhoan = null;
     }
 
     public static boolean isLogin() {
