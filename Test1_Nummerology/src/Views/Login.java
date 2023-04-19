@@ -1,6 +1,7 @@
 
 package Views;
 
+import DomainModels.QuanLy;
 import DomainModels.TaiKhoan;
 import DomainModels.User;
 import Service.impl.TK_Service_impl;
@@ -101,10 +102,10 @@ public class Login extends javax.swing.JDialog {
         try {
             String taiKhoan = txtTK.getText();
             String pass = new String(txtMK.getPassword());
-            User user = userService.getOne(taiKhoan); 
+            User user = userService.getOne(taiKhoan);
             TaiKhoan tk = tkService.getOne(taiKhoan);
             StringBuilder sb = new StringBuilder();
-           
+
             if (txtTK.getText().equals("")) {
                 sb.append("Bạn chưa nhập 'Tài khoản'");
             } else if (txtMK.getPassword().equals("")) {
@@ -113,20 +114,29 @@ public class Login extends javax.swing.JDialog {
                 sb.append("Sai 'Tài khoản'");
             } else if (!pass.equals(tk.getMK())) {
                 sb.append("Sai 'Mật khẩu'");
-            } else if (sb.length() > 0) {
+            }
+
+            if (sb.length() > 0) {
                 JOptionPane.showConfirmDialog(this, sb.toString(), "ERROR!", JOptionPane.ERROR_MESSAGE);
                 return;
             } else {
                 Auth.user = user;
+                Auth.taiKhoan = tk;
                 this.dispose();
+                
+                if(Auth.taiKhoan.getChucVu().trim().equals("admin")){
                 TrangChu trangChu = new TrangChu();
                 trangChu.setVisible(true);
+                }
+                else {
+                    ThongTinTraCuu thongTin = new ThongTinTraCuu();
+                    thongTin.setVisible(true);
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
