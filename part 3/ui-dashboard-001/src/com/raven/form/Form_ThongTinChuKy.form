@@ -42,7 +42,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Component id="txtThanSoHoc1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="21" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
@@ -68,7 +68,7 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="txtThanSoHoc1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="20" max="32767" attributes="0"/>
+                  <EmptySpace pref="19" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -145,7 +145,7 @@
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
+                  <Font name="UTM Impact" size="18" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#x110;&#x1b0;&#x1edd;ng t&#xec;nh:"/>
               </Properties>
@@ -153,7 +153,7 @@
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
+                  <Font name="UTM Impact" size="18" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Bi&#x1ec7;n ph&#xe1;p:"/>
               </Properties>
@@ -161,7 +161,7 @@
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
+                  <Font name="UTM Impact" size="18" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="N&#x1ed9;i dung:"/>
               </Properties>
@@ -169,7 +169,7 @@
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="0"/>
+                  <Font name="UTM Impact" size="18" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="S&#x1ed1; chu k&#x1ef3;:"/>
               </Properties>

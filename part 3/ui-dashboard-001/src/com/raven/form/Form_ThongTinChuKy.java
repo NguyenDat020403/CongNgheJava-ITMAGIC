@@ -88,16 +88,16 @@ public class Form_ThongTinChuKy extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/chuky.png"))); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("UTM Impact", 0, 18)); // NOI18N
         jLabel2.setText("Đường tình:");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("UTM Impact", 0, 18)); // NOI18N
         jLabel3.setText("Biện pháp:");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("UTM Impact", 0, 18)); // NOI18N
         jLabel4.setText("Nội dung:");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("UTM Impact", 0, 18)); // NOI18N
         jLabel5.setText("Số chu kỳ:");
 
         txtSCK.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -176,7 +176,7 @@ public class Form_ThongTinChuKy extends javax.swing.JFrame {
             .addGroup(panelThanSoHoc1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(txtThanSoHoc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panelThanSoHoc1Layout.createSequentialGroup()
                 .addGap(163, 163, 163)
                 .addComponent(jLabel1)
@@ -196,7 +196,7 @@ public class Form_ThongTinChuKy extends javax.swing.JFrame {
                         .addComponent(Exit)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtThanSoHoc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

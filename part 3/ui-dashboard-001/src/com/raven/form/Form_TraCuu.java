@@ -61,7 +61,7 @@ public class Form_TraCuu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("UTM Impact", 0, 14)); // NOI18N
         jLabel1.setText("Email:");
 
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +90,7 @@ public class Form_TraCuu extends javax.swing.JFrame {
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("UTM Impact", 0, 14)); // NOI18N
         jLabel2.setText("Phone Number:");
 
         txtSDT.addActionListener(new java.awt.event.ActionListener() {
@@ -119,7 +119,7 @@ public class Form_TraCuu extends javax.swing.JFrame {
                     .addComponent(txtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("UTM Impact", 0, 14)); // NOI18N
         jLabel3.setText("Full Name:");
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
@@ -148,7 +148,7 @@ public class Form_TraCuu extends javax.swing.JFrame {
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("UTM Impact", 0, 14)); // NOI18N
         jLabel4.setText("Nick Name:");
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
@@ -177,6 +177,7 @@ public class Form_TraCuu extends javax.swing.JFrame {
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
+        jLabel5.setFont(new java.awt.Font("UTM Impact", 0, 14)); // NOI18N
         jLabel5.setText("Sex:");
 
         txtSex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Giới tính", "Nam", "Nữ", "Khác" }));
@@ -207,6 +208,7 @@ public class Form_TraCuu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel6.setFont(new java.awt.Font("UTM Impact", 0, 14)); // NOI18N
         jLabel6.setText("BirthDay:");
 
         javax.swing.GroupLayout txtThanSoHoc6Layout = new javax.swing.GroupLayout(txtThanSoHoc6);
@@ -237,6 +239,7 @@ public class Form_TraCuu extends javax.swing.JFrame {
         );
 
         btnTraCuu.setText("Tra cứu");
+        btnTraCuu.setFont(new java.awt.Font("UTM Impact", 0, 18)); // NOI18N
         btnTraCuu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnTraCuuMouseClicked(evt);
