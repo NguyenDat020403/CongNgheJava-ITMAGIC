@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Service.impl;
 
 import DomainModels.TaiKhoan;
@@ -11,10 +7,6 @@ import Services.TKService;
 import View_Model.TKViewModel;
 import java.util.List;
 
-/**
- *
- * @author admin
- */
 public class TK_Service_impl implements TKService{
     TKResponsitory TKRes = new TK_responsitory_impl();
 
@@ -42,6 +34,11 @@ public class TK_Service_impl implements TKService{
     public TaiKhoan getOne(String TK) {
             return TKRes.getOne(TK);
 
+    }
+
+    @Override
+    public List<TKViewModel> select(String TK, String Email, String Name) {
+        return TKRes.select(TK, Email, Name);
     }
 
     

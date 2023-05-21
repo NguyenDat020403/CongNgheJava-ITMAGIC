@@ -1,18 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package View_Model;
 
-import java.util.Date;
-
-/**
- *
- * @author admin
- */
 public class QuanLyViewModel {
     private int ID;
-    private String  MaQL;
+    private String  EmailQL;
     private String  TenQL;
     private int Ngay;
     private int Thang;
@@ -22,15 +12,15 @@ public class QuanLyViewModel {
 
 
     public Object[] toDataRow() {
-        return new Object[]{ID ,MaQL,TenQL,Ngay,Thang,Nam,TK,MK};
+        return new Object[]{ID ,EmailQL,TenQL,Ngay,Thang,Nam,TK,MK};
     }
 
     public QuanLyViewModel() {
     }
 
-    public QuanLyViewModel(int ID, String MaQL, String TenQL, int Ngay, int Thang, int Nam, String TK, String MK) {
+    public QuanLyViewModel(int ID, String EmailQL, String TenQL, int Ngay, int Thang, int Nam, String TK, String MK) {
         this.ID = ID;
-        this.MaQL = MaQL;
+        this.EmailQL = EmailQL;
         this.TenQL = TenQL;
         this.Ngay = Ngay;
         this.Thang = Thang;
@@ -47,12 +37,12 @@ public class QuanLyViewModel {
         this.ID = ID;
     }
 
-    public String getMaQL() {
-        return MaQL;
+    public String getEmailQL() {
+        return EmailQL;
     }
 
-    public void setMaQL(String MaQL) {
-        this.MaQL = MaQL;
+    public void setEmailQL(String EmailQL) {
+        this.EmailQL = EmailQL;
     }
 
     public String getTenQL() {

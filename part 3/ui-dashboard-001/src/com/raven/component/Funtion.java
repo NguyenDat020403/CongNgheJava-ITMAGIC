@@ -2,25 +2,25 @@
 package com.raven.component;
 
 import DomainModels.TaiKhoan;
-import DomainModels.User;
+import DomainModels.TTNhap;
 import Service.impl.TK_Service_impl;
-import Service.impl.User_Service_impl;
+import Service.impl.TTNhap_Service_impl;
 import Services.TKService;
-import Services.UserService;
-import View_Model.UserViewModel;
+import View_Model.TTNhapViewModel;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import Services.TTNhapService;
 
 public class Funtion extends javax.swing.JFrame {
 
-    List<UserViewModel> ListUser;
-    UserService userSer = new User_Service_impl();
+    List<TTNhapViewModel> ListUser;
+    TTNhapService userSer = new TTNhap_Service_impl();
     DefaultTableModel dtm;
 
-    void showDataTable(List<UserViewModel> lst) {
+    void showDataTable(List<TTNhapViewModel> lst) {
         dtm.setRowCount(0);
-        for (UserViewModel x : lst) {
+        for (TTNhapViewModel x : lst) {
             dtm.addRow(x.toDataRow());
         }
     }
@@ -313,13 +313,13 @@ public class Funtion extends javax.swing.JFrame {
 
         TaiKhoan tk = new TaiKhoan();
 
-        User user = new User();
+        TTNhap user = new TTNhap();
 
         tk.setTK(taikhoan);
         tk.setMK(mk);
         tkSer.creat(tk);
 
-        user.setMaUser(ma);
+        user.setEmailUser(ma);
         user.setName(ten);
         user.setNgay(ngayInt);
         user.setThang(thangInt);
@@ -384,12 +384,12 @@ public class Funtion extends javax.swing.JFrame {
         String mk = new String(txtMK.getPassword());
         TaiKhoan tk = new TaiKhoan();
 
-        User user = new User();
+        TTNhap user = new TTNhap();
 
         tk.setTK(taikhoan);
         tk.setMK(mk);
         tkSer.creat(tk);
-        user.setMaUser(ma);
+        user.setEmailUser(ma);
         user.setName(ten);
         user.setNgay(ngayInt);
         user.setThang(thangInt);
@@ -416,12 +416,12 @@ public class Funtion extends javax.swing.JFrame {
             JOptionPane.showConfirmDialog(this, sb.toString(), "ERROR!", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        for (UserViewModel user : ListUser) {
+        for (TTNhapViewModel user : ListUser) {
 
-            if (user.getMaUser().equals(txtEmail.getText())) {
+            if (user.getEmailUser().equals(txtEmail.getText())) {
                 int choice = JOptionPane.showConfirmDialog(this, "Bạnn có muốn xóa không?", "Xác nhận.", JOptionPane.YES_NO_OPTION);
                 if (choice == JOptionPane.YES_OPTION) {
-                    userSer.delete(user.getMaUser());
+                    userSer.delete(user.getEmailUser());
                     ListUser = userSer.getALL();
                     showDataTable(ListUser);
                     JOptionPane.showConfirmDialog(this, "Đã xóa thành công");

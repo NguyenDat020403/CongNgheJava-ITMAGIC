@@ -21,8 +21,8 @@ public class CK_responsitory_impl implements CKResponsitory {
         @Override
     public List<CKViewModel> getALL() {
         //tìm dữ liệu id mã tên trên SQL
-        String sql = "SELECT TOP (1000) [ID]\n"
-                    + "      ,[SoCK]\n"
+        String sql = "SELECT TOP (1000)\n"
+                    + "      [SoCK]\n"
                     + "      ,[ND]\n"
                     + "      ,[BienPhap]\n"
                     + "      ,[TinhYeu]\n"
@@ -58,8 +58,8 @@ public class CK_responsitory_impl implements CKResponsitory {
 
     @Override
     public ChuKy getOne(String SoCK) {
-        String query = "SELECT TOP (1000) [ID]\n"
-                + "      ,[SoCK]\n"
+        String query = "SELECT TOP (1000) \n"
+                + "      [SoCK]\n"
                 + "      ,[ND]\n"
                 + "      ,[BienPhap]\n"
                 + "      ,[TinhYeu]\n"

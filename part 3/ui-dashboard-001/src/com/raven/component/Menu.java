@@ -1,7 +1,7 @@
 package com.raven.component;
 
 import com.raven.event.EventMenuSelected;
-import com.raven.model.Model_Menu;
+import View_Model.Model_Menu;
 import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;

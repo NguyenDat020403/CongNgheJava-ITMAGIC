@@ -14,9 +14,9 @@ public interface QuanLyResponsitory {
 
     int creat(QuanLy quanLy);
 
-    int update(QuanLy quanLy, String MaQL);
+    int update(QuanLy quanLy, String EmailQL);
 
-    int delete(String MaQL);
+    int delete(String EmailQL);
     QuanLy getOne(String FTK);
     List<QuanLyViewModel> select(String TenQL);
     

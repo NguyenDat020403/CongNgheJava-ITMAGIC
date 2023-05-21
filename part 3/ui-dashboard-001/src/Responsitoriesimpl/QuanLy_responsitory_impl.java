@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Responsitoriesimpl;
 
 import DomainModels.QuanLy;
@@ -13,17 +9,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author admin impl : sử dụng tính trừu tượng
- */
 public class QuanLy_responsitory_impl implements QuanLyResponsitory {
 
     @Override
     public List<QuanLyViewModel> getALL() {
         //tìm dữ liệu id mã tên trên SQL
         String sql = "SELECT [ID]\n"
-                + "      ,[MaQL]\n"
+                + "      ,[EmailQL]\n"
                 + "      ,[TenQL]\n"
                 + "      ,[Ngay]\n"
                 + "      ,[Thang]\n"
@@ -44,7 +36,7 @@ public class QuanLy_responsitory_impl implements QuanLyResponsitory {
                 QuanLyViewModel quanLy = new QuanLyViewModel();
                 //lấy dữ liệu cùng tên tương ứng
                 int id = rs.getInt("ID");
-                String maQL = rs.getString("MaQL");
+                String maQL = rs.getString("EmailQL");
                 String tenQL = rs.getString("TenQL");
                 int ngay = rs.getInt("Ngay");
                 int thang = rs.getInt("Thang");
@@ -54,7 +46,7 @@ public class QuanLy_responsitory_impl implements QuanLyResponsitory {
                 
                 //lưu dữ liệu và
                 quanLy.setID(id);
-                quanLy.setMaQL(maQL);
+                quanLy.setEmailQL(maQL);
                 quanLy.setTenQL(tenQL);
                 quanLy.setNgay(ngay);
                 quanLy.setThang(thang);
@@ -76,7 +68,7 @@ public class QuanLy_responsitory_impl implements QuanLyResponsitory {
     @Override
     public int creat(QuanLy quanLy) {
         String sql = "INSERT INTO [dbo].[QuanLy]\n"
-                + "           ([MaQL]\n"
+                + "           ([EmailQL]\n"
                 + "           ,[TenQL]\n"
                 + "           ,[Ngay]\n"
                 + "           ,[Thang]\n"
@@ -84,36 +76,36 @@ public class QuanLy_responsitory_impl implements QuanLyResponsitory {
                 + "           ,[FTK])\n"
 
                 + "     VALUES(?, ?, ?, ?, ?, ?)";
-        return JDBC_helper.updateTongQuat(sql, quanLy.getMaQL(), quanLy.getTenQL(), quanLy.getNgay(),
+        return JDBC_helper.updateTongQuat(sql, quanLy.getEmailQL(), quanLy.getTenQL(), quanLy.getNgay(),
                 quanLy.getThang(), quanLy.getNam(), quanLy.getFTK());
     }
 
     @Override
-    public int update(QuanLy quanLy, String MaQL) {
+    public int update(QuanLy quanLy, String EmailQL) {
         String sql = "UPDATE [dbo].[QuanLy]\n"
-                + "   SET [MaQL] = ?\n"
+                + "   SET [EmailQL] = ?\n"
                 + "      ,[TenQL] = ?\n"
                 + "      ,[Ngay] = ?\n"
                 + "      ,[Thang] = ?\n"
                 + "      ,[Nam] = ?\n"
                 + "      ,[FTK] = ?\n"
 
-                + " WHERE MaQL = ?";
-        return JDBC_helper.updateTongQuat(sql, quanLy.getMaQL(), quanLy.getTenQL(), quanLy.getNgay(), quanLy.getThang(),
-                quanLy.getNam(), quanLy.getFTK(),  quanLy.getMaQL());
+                + " WHERE EmailQL = ?";
+        return JDBC_helper.updateTongQuat(sql, quanLy.getEmailQL(), quanLy.getTenQL(), quanLy.getNgay(), quanLy.getThang(),
+                quanLy.getNam(), quanLy.getFTK(),  quanLy.getEmailQL());
     }
 
     @Override
-    public int delete(String MaQL) {
+    public int delete(String EmailQL) {
         String sql = "DELETE FROM [dbo].[QuanLy]\n"
-                + "      WHERE MaQL = ?";
-        return JDBC_helper.updateTongQuat(sql, MaQL);
+                + "      WHERE EmailQL = ?";
+        return JDBC_helper.updateTongQuat(sql, EmailQL);
     }
 
     @Override
     public QuanLy getOne(String FTK) {
                 String query = "SELECT TOP (1000) [ID]\n" +
-"      ,[MaQL]\n" +
+"      ,[EmailQL]\n" +
 "      ,[TenQL]\n" +
 "      ,[Ngay]\n" +
 "      ,[Thang]\n" +
@@ -126,7 +118,7 @@ public class QuanLy_responsitory_impl implements QuanLyResponsitory {
                
                 QuanLy quanLy = new QuanLy();
                 quanLy.setID(rs.getInt("ID"));
-                quanLy.setMaQL(rs.getString("MaQL"));
+                quanLy.setEmailQL(rs.getString("EmailQL"));
                 quanLy.setTenQL(rs.getString("TenQL"));
                 quanLy.setNgay(rs.getInt("Ngay"));
                 quanLy.setThang(rs.getInt("Thang"));
@@ -145,7 +137,7 @@ public class QuanLy_responsitory_impl implements QuanLyResponsitory {
     public List<QuanLyViewModel> select(String TenQL) {
         ArrayList<QuanLyViewModel> listQuanLy = new ArrayList<>();
         String query = "SELECT [ID]\n"
-                + "      ,[MaQL]\n"
+                + "      ,[EmailQL]\n"
                 + "      ,[TenQL]\n"
                 + "      ,[Ngay]\n"
                 + "      ,[Thang]\n"
@@ -162,7 +154,7 @@ public class QuanLy_responsitory_impl implements QuanLyResponsitory {
             while (rs.next()) {
                 QuanLyViewModel quanLi = new QuanLyViewModel();
                 quanLi.setID(rs.getInt("ID"));
-                quanLi.setMaQL(rs.getString("MaQL"));
+                quanLi.setEmailQL(rs.getString("EmailQL"));
                 quanLi.setTenQL(rs.getString("TenQL"));
                 quanLi.setNgay(rs.getInt("Ngay"));
                 quanLi.setThang(rs.getInt("Thang"));

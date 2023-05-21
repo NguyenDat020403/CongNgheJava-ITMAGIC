@@ -2,34 +2,35 @@
 package loginandsignup;
 
 import DomainModels.TaiKhoan;
-import DomainModels.User;
+import DomainModels.TTNhap;
 import Service.impl.TK_Service_impl;
-import Service.impl.User_Service_impl;
+import Service.impl.TTNhap_Service_impl;
 import Services.TKService;
-import Services.UserService;
 import View_Model.TKViewModel;
-import View_Model.UserViewModel;
+import View_Model.TTNhapViewModel;
 import java.util.List;
 import javax.swing.JOptionPane;
+import Services.TTNhapService;
 
 
 public class SignUp extends javax.swing.JFrame {
-    List<UserViewModel> ListUser;
-    UserService userSer = new User_Service_impl();
     List<TKViewModel> ListTK;
     TKService tkSer = new TK_Service_impl();
  
     public SignUp() {
         initComponents();
     }
-    public int Check(){
+
+    public int Check() {
         ListTK = tkSer.getALL();
         int a = 0;
         for (TKViewModel taiKhoan : ListTK) {
             if (taiKhoan.getTK().equals(txtTaiKhoan.getText())) {
                 return a = 1;
+            } else if(taiKhoan.getEmail().equals(txtEmail.getText())){
+                return a = 2;
             }
-        }   
+        }
         return a;
     }
   
@@ -41,11 +42,9 @@ public class SignUp extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         btnDangKi = new javax.swing.JButton();
-        txtSex = new javax.swing.JComboBox<>();
         txtName = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
-        txtSDT = new javax.swing.JTextField();
         txtMatKhau = new javax.swing.JTextField();
         txtTaiKhoan = new javax.swing.JTextField();
         jPanelSinhNhat = new javax.swing.JPanel();
@@ -55,15 +54,12 @@ public class SignUp extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
         LoginNow = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -93,19 +89,6 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
 
-        txtSex.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtSex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nam", "Nữ" }));
-        txtSex.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                txtSexItemStateChanged(evt);
-            }
-        });
-        txtSex.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSexActionPerformed(evt);
-            }
-        });
-
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameActionPerformed(evt);
@@ -122,9 +105,6 @@ public class SignUp extends javax.swing.JFrame {
                 txtEmailActionPerformed(evt);
             }
         });
-
-        txtSDT.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtSDT.setForeground(new java.awt.Color(204, 204, 204));
 
         txtMatKhau.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtMatKhau.setForeground(new java.awt.Color(204, 204, 204));
@@ -202,10 +182,6 @@ public class SignUp extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel12.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel12.setText("+84");
-
         jCheckBox1.setText("Bạn có đồng ý với điều khoản dịch vụ ?");
 
         jLabel4.setText("Bạn đã có tài khoản?");
@@ -218,10 +194,6 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel5.setText("Giới tính");
-
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Account:");
 
@@ -231,9 +203,6 @@ public class SignUp extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel9.setText("Email:");
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel13.setText("Phone Number");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -241,48 +210,37 @@ public class SignUp extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox1)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(LoginNow))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(94, 94, 94)
-                                .addComponent(btnDangKi, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(138, 138, 138)
+                        .addComponent(btnDangKi, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(txtMatKhau, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtTaiKhoan, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel10))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtSex, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtMatKhau, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtTaiKhoan, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanelSinhNhat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel10)))
+                            .addComponent(jPanelSinhNhat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckBox1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(LoginNow)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -300,26 +258,14 @@ public class SignUp extends javax.swing.JFrame {
                     .addComponent(jLabel9)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel12)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtName))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jPanelSinhNhat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jCheckBox1)
-                .addGap(29, 29, 29)
+                .addGap(27, 27, 27)
                 .addComponent(btnDangKi, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -411,17 +357,12 @@ public class SignUp extends javax.swing.JFrame {
                 .addGap(0, 76, Short.MAX_VALUE)
                 .addComponent(jLabel19)
                 .addGap(40, 40, 40))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -433,7 +374,7 @@ public class SignUp extends javax.swing.JFrame {
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel20)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 325, Short.MAX_VALUE)
                 .addComponent(jLabel19)
                 .addGap(78, 78, 78))
         );
@@ -484,12 +425,11 @@ public class SignUp extends javax.swing.JFrame {
     private void btnDangKiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangKiActionPerformed
         StringBuilder sb = new StringBuilder();
         TKService tkSer = new TK_Service_impl();
+         
         if (txtTaiKhoan.getText().equals("")) {
             sb.append("Bạn chưa nhập 'Tài khoản'");
         } else if (txtName.getText().equals("")) {
             sb.append("Bạn chưa nhập 'Tên'");
-        } else if (txtSDT.getText().equals("")) {
-            sb.append("Bạn chưa nhập 'SDT'");
         } else if (txtNgay.getText().equals("")) {
             sb.append("Bạn chưa nhập 'Ngày'");
         } else if (txtThang.getText().equals("")) {
@@ -504,16 +444,13 @@ public class SignUp extends javax.swing.JFrame {
 
         //
  
-//        if (ngayInt > 31 || 0 >= ngayInt) {
-//            sb.append("Bạn chưa nhập đúng ngày tháng năm sinh!");
-//        } else if (thangInt > 12 || 0 >= thangInt) {
-//            sb.append("Bạn chưa nhập đúng ngày tháng năm sinh!");
-//        } else if (namInt < 1900 || namInt > 2100) {
-//            sb.append("Bạn chưa nhập đúng ngày tháng năm sinh!");
-//        }
+
 
         if(Check() == 1){
             JOptionPane.showConfirmDialog(this, "Trùng tài khoản.","ERROR!", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else  if(Check() == 2){
+            JOptionPane.showConfirmDialog(this, "Trùng Email.","ERROR!", JOptionPane.ERROR_MESSAGE);     
             return;
         }
         
@@ -523,9 +460,6 @@ public class SignUp extends javax.swing.JFrame {
         }
         String ma = txtEmail.getText();
         String ten = txtName.getText();
-        String sex = (String) txtSex.getSelectedItem();
-        String sdt = txtSDT.getText();
-        int sdtInt = Integer.parseInt(sdt);
         String taikhoan = txtTaiKhoan.getText();
         String mk = txtMatKhau.getText();
         String ngay = txtNgay.getText();
@@ -534,39 +468,45 @@ public class SignUp extends javax.swing.JFrame {
         int thangInt = Integer.parseInt(thang);
         String nam = txtNam.getText();
         int namInt = Integer.parseInt(nam);
-
+        
+        if (ngayInt > 31 || 0 >= ngayInt) {
+            sb.append("Bạn chưa nhập đúng ngày tháng năm sinh!");
+        } else if (thangInt > 12 || 0 >= thangInt) {
+            sb.append("Bạn chưa nhập đúng ngày tháng năm sinh!");
+        } else if (namInt < 1900 || namInt > 2100) {
+            sb.append("Bạn chưa nhập đúng ngày tháng năm sinh!");
+        }
+        
+        if (sb.length() > 0) {
+            JOptionPane.showConfirmDialog(this, sb.toString(), "ERROR!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }    
+        
         TaiKhoan tk = new TaiKhoan();
 
-        User user = new User();
+        TTNhap user = new TTNhap();
 
         tk.setTK(taikhoan);
         tk.setMK(mk);
+        tk.setEmail(ma);
+        tk.setTen(ten);
+        tk.setNgay(ngayInt);
+        tk.setThang(thangInt);
+        tk.setNam(namInt);
+        tk.setSLTraCuu(0);
         tk.setChucVu("user");
         tkSer.creat(tk);
 
-        user.setMaUser(ma);
-        user.setName(ten);
-        user.setNgay(ngayInt);
-        user.setThang(thangInt);
-        user.setNam(namInt);
-        user.setSex(sex);
-        user.setSDT(sdtInt);
-        user.setFTK(taikhoan);
         //thêm dữ liệu vào danh sách
-        userSer.creat(user);
-        ListUser = userSer.getALL();
 
         JOptionPane.showConfirmDialog(this, "Đăng kí thành công");
+        Login LoginFrame = new Login();
+        LoginFrame.setVisible(true);
+        LoginFrame.pack();
+        LoginFrame.setLocationRelativeTo(null);
+        this.dispose();
 
     }//GEN-LAST:event_btnDangKiActionPerformed
-
-    private void txtSexItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_txtSexItemStateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSexItemStateChanged
-
-    private void txtSexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSexActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSexActionPerformed
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
@@ -607,8 +547,6 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -617,7 +555,6 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -633,8 +570,6 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JTextField txtNam;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtNgay;
-    private javax.swing.JTextField txtSDT;
-    private javax.swing.JComboBox<String> txtSex;
     private javax.swing.JTextField txtTaiKhoan;
     private javax.swing.JTextField txtThang;
     // End of variables declaration//GEN-END:variables

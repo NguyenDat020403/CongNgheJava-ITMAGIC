@@ -9,9 +9,9 @@ package View_Model;
  * @author admin
  * class này chứa dữ liệu cho giao diện user
  */
-public class UserViewModel {
+public class TTNhapViewModel {
     private     int ID;
-    private     String MaUser;
+    private     String EmailUser;
     private     String Name;
     private     int Ngay;
     private     int Thang;
@@ -22,15 +22,15 @@ public class UserViewModel {
     private     String MK;
 
     public Object[] toDataRow() {
-        return new Object[]{ID ,MaUser,Name,Ngay,Thang,Nam,Sex,SDT,TK,MK};
+        return new Object[]{ID ,EmailUser,Name,Ngay,Thang,Nam,Sex,SDT,TK,MK};
     }
 
-    public UserViewModel() {
+    public TTNhapViewModel() {
     }
 
-    public UserViewModel(int ID, String MaUser, String Name, int Ngay, int Thang, int Nam, String Sex, int SDT, String TK, String MK) {
+    public TTNhapViewModel(int ID, String EmailUser, String Name, int Ngay, int Thang, int Nam, String Sex, int SDT, String TK, String MK) {
         this.ID = ID;
-        this.MaUser = MaUser;
+        this.EmailUser = EmailUser;
         this.Name = Name;
         this.Ngay = Ngay;
         this.Thang = Thang;
@@ -49,12 +49,12 @@ public class UserViewModel {
         this.ID = ID;
     }
 
-    public String getMaUser() {
-        return MaUser;
+    public String getEmailUser() {
+        return EmailUser;
     }
 
-    public void setMaUser(String MaUser) {
-        this.MaUser = MaUser;
+    public void setEmailUser(String EmailUser) {
+        this.EmailUser = EmailUser;
     }
 
     public String getName() {

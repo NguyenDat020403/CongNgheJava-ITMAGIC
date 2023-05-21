@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.raven.form;
 
-import DomainModels.QuanLy;
 import DomainModels.TaiKhoan;
-import Service.impl.QuanLy_Service_impl;
 import Service.impl.TK_Service_impl;
-import Services.QuanLyService;
 import Services.TKService;
-import View_Model.QuanLyViewModel;
+import View_Model.TKViewModel;
 import com.raven.swing.ScrollBar;
 import java.awt.Color;
 import java.util.List;
@@ -21,13 +13,14 @@ import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 
 public class Form_Admin extends javax.swing.JPanel {
-    List<QuanLyViewModel> ListQuanLy;
-    QuanLyService quanLySer = new QuanLy_Service_impl();
+
+    List<TKViewModel> ListTK;
+    TKService tkSer = new TK_Service_impl();
     DefaultTableModel dtm;
     
-    void showDataTable(List<QuanLyViewModel> lst) {
+    void showDataTable(List<TKViewModel> lst) {
         dtm.setRowCount(0);
-        for (QuanLyViewModel x : lst) {
+        for (TKViewModel x : lst) {
             dtm.addRow(x.toDataRow());
         }
     }
@@ -40,14 +33,24 @@ public class Form_Admin extends javax.swing.JPanel {
         p.setBackground(Color.WHITE);
         spTable.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
         dtm = (DefaultTableModel) table.getModel();
-        ListQuanLy = quanLySer.getALL();
-        showDataTable(ListQuanLy);
+        ListTK = tkSer.getALL();
+        showDataTable(ListTK);
     }
    
     public void select() {
     dtm.setRowCount(0);   
-    List<QuanLyViewModel> quanLyList = quanLySer.select(searchText2.getText().trim());
-    showDataTable(quanLyList);
+    List<TKViewModel> tkList = tkSer.select(searchText2.getText().trim(), searchText2.getText().trim(),searchText2.getText().trim());
+    showDataTable(tkList);
+    }
+    public void Clear(){
+        txtEmail.setText("");
+        txtName.setText("");
+        txtNgay.setText("");
+        txtThang.setText("");
+        txtNam.setText("");
+        txtTK.setText("");
+        txtMK.setText("");
+        txtSLTraCuu.setText("");
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -88,7 +91,10 @@ public class Form_Admin extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         txtMK = new javax.swing.JPasswordField();
+        jLabel19 = new javax.swing.JLabel();
+        txtSLTraCuu = new com.raven.swing.textField();
 
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setPreferredSize(new java.awt.Dimension(915, 600));
 
         panelBorder1.setBackground(new java.awt.Color(255, 255, 255));
@@ -104,7 +110,7 @@ public class Form_Admin extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Email", "Name", "Day", "Month", "Year", "Account", "Password"
+                "Email", "Họ Tên", "Ngày", "Tháng", "Năm", "Tài Khoản", "Mật Khẩu", "Số lần tra cứu"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -297,10 +303,20 @@ public class Form_Admin extends javax.swing.JPanel {
         txtMK.setToolTipText("");
         txtMK.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 204, 204)));
 
+        jLabel19.setText("SL tra cứu:");
+
+        txtSLTraCuu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSLTraCuuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelBorder3Layout = new javax.swing.GroupLayout(panelBorder3);
         panelBorder3.setLayout(panelBorder3Layout);
         panelBorder3Layout.setHorizontalGroup(
             panelBorder3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelBorder3Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(panelBorder3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,26 +325,17 @@ public class Form_Admin extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelBorder3Layout.createSequentialGroup()
-                        .addGroup(panelBorder3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelBorder3Layout.createSequentialGroup()
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(8, 8, 8)
-                                .addComponent(txtNgay, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtThang, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(21, 21, 21)
-                                .addComponent(jLabel9))
-                            .addGroup(panelBorder3Layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnDelete)))
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(txtNgay, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtThang, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelBorder3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNam, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnFix, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtNam, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelBorder3Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -341,10 +348,19 @@ public class Form_Admin extends javax.swing.JPanel {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelBorder3Layout.createSequentialGroup()
                             .addComponent(jLabel11)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtTK, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtTK, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelBorder3Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDelete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnFix, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelBorder3Layout.createSequentialGroup()
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSLTraCuu, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelBorder3Layout.setVerticalGroup(
             panelBorder3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -375,12 +391,16 @@ public class Form_Admin extends javax.swing.JPanel {
                 .addGroup(panelBorder3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(txtMK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(58, 58, 58)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelBorder3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(txtSLTraCuu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelBorder3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
                     .addComponent(btnFix)
                     .addComponent(btnDelete))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
+                .addGap(126, 126, 126)
                 .addComponent(jLabel18)
                 .addGap(15, 15, 15))
         );
@@ -419,13 +439,12 @@ public class Form_Admin extends javax.swing.JPanel {
     }//GEN-LAST:event_searchText2KeyReleased
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
 
     private void btnFixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFixActionPerformed
         StringBuilder sb = new StringBuilder();
-        TKService tkSer = new TK_Service_impl();
-        QuanLy quanly = new QuanLy();
+        TaiKhoan tk = new TaiKhoan();
+
         if (txtEmail.getText().equals("")) {
             sb.append("Bạn chưa nhập 'Email'");
         } else if (txtName.getText().equals("")) {
@@ -454,29 +473,33 @@ public class Form_Admin extends javax.swing.JPanel {
         int thangInt = Integer.parseInt(thang);
         String nam = txtNam.getText();
         int namInt = Integer.parseInt(nam);
+        String sl = txtSLTraCuu.getText();
+        int slInt = Integer.parseInt(sl);
         String taikhoan = txtTK.getText();
         String mk = new String(txtMK.getPassword());
 
-        TaiKhoan tk = new TaiKhoan();
-        QuanLy quanLy = new QuanLy();
-
         tk.setTK(taikhoan);
         tk.setMK(mk);
-        tkSer.creat(tk);
-        quanLy.setMaQL(ma);
-        quanLy.setTenQL(ten);
-        quanLy.setNgay(ngayInt);
-        quanLy.setThang(thangInt);
-        quanLy.setNam(namInt);
-        quanLy.setFTK(taikhoan);
+        tkSer.update(tk, mk);
+        tk.setEmail(ma);
+        tk.setTen(ten);
+        tk.setNgay(ngayInt);
+        tk.setThang(thangInt);
+        tk.setNam(namInt);
+        tk.setSLTraCuu(slInt);
+        
         //thêm dữ liệu vào danh sách
-        quanLySer.update(quanLy, ma);
-        ListQuanLy = quanLySer.getALL();
-        showDataTable(ListQuanLy);
+        tkSer.update(tk, ma);
+        
+        ListTK = tkSer.getALL();
+        showDataTable(ListTK);
+        JOptionPane.showConfirmDialog(this, "Đã sửa thành công");
+        Clear();
     }//GEN-LAST:event_btnFixActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-               StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
+        TaiKhoan tk = new TaiKhoan();
         
         TKService tkSer = new TK_Service_impl();
         if (txtEmail.getText().equals("")) {
@@ -504,42 +527,34 @@ public class Form_Admin extends javax.swing.JPanel {
         
         String ma = txtEmail.getText();
         String ten = txtName.getText();
-        String taikhoan = txtTK.getText();
-        String mk = new String(txtMK.getPassword());
         String ngay = txtNgay.getText();
         int ngayInt = Integer.parseInt(ngay);
         String thang = txtThang.getText();
         int thangInt = Integer.parseInt(thang);
         String nam = txtNam.getText();
         int namInt = Integer.parseInt(nam);
-        
-        TaiKhoan tk = new TaiKhoan();
-        QuanLy quanLy = new QuanLy();
+        String sl = txtSLTraCuu.getText();
+        int slInt = Integer.parseInt(sl);
+        String taikhoan = txtTK.getText();
+        String mk = new String(txtMK.getPassword());
 
         tk.setTK(taikhoan);
         tk.setMK(mk);
-        tkSer.creat(tk);
-
-        quanLy.setMaQL(ma);
-        quanLy.setTenQL(ten);
-        quanLy.setNgay(ngayInt);
-        quanLy.setThang(thangInt);
-        quanLy.setNam(namInt);
-        quanLy.setFTK(taikhoan);
+        tkSer.update(tk, mk);
+        tk.setEmail(ma);
+        tk.setTen(ten);
+        tk.setNgay(ngayInt);
+        tk.setThang(thangInt);
+        tk.setNam(namInt);
+        tk.setSLTraCuu(slInt);
         
         //thêm dữ liệu vào danh sách
-        quanLySer.creat(quanLy);
-        ListQuanLy = quanLySer.getALL();
-        showDataTable(ListQuanLy);
-
+        tkSer.creat(tk);
+        
+        ListTK = tkSer.getALL();
+        showDataTable(ListTK);
         JOptionPane.showConfirmDialog(this, "Đã thêm thành công");
-        txtEmail.setText("");
-        txtName.setText("");
-        txtNgay.setText("");
-        txtThang.setText("");
-        txtNam.setText("");
-        txtTK.setText("");
-        txtMK.setText("");
+        Clear();
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -555,22 +570,17 @@ public class Form_Admin extends javax.swing.JPanel {
             JOptionPane.showConfirmDialog(this, sb.toString(), "ERROR!", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        for (QuanLyViewModel quanLy : ListQuanLy) {
+        for (TKViewModel tk : ListTK) {
 
-            if (quanLy.getMaQL().equals(txtEmail.getText())) {
+            if (tk.getEmail().equals(txtEmail.getText())) {
                 int choice = JOptionPane.showConfirmDialog(this, "Bạnn có muốn xóa không?", "Xác nhận.", JOptionPane.YES_NO_OPTION);
                 if (choice == JOptionPane.YES_NO_OPTION) {
-                    quanLySer.delete(quanLy.getMaQL());
-                    ListQuanLy = quanLySer.getALL();
-                    showDataTable(ListQuanLy);
+                    tkSer.delete(tk.getTK());
+                    ListTK = tkSer.getALL();
+                    showDataTable(ListTK);
                     JOptionPane.showConfirmDialog(this, "Đã xóa thành công");
-                            txtEmail.setText("");
-        txtName.setText("");
-        txtNgay.setText("");
-        txtThang.setText("");
-        txtNam.setText("");
-        txtTK.setText("");
-        txtMK.setText("");
+                    txtEmail.setText("");
+                    Clear();
                     return;
                 }
                 count++;
@@ -586,22 +596,27 @@ public class Form_Admin extends javax.swing.JPanel {
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
         int selected = table.getSelectedRow();
         if (selected >= 0) {
-            String Name = (String) table.getValueAt(selected, 2);
-            for (QuanLyViewModel quanLy : ListQuanLy) {
-                if (quanLy.getTenQL().equals(Name)) {
+            String Email = (String) table.getValueAt(selected, 0);
+            for (TKViewModel tk : ListTK) {
+                if (tk.getEmail().equals(Email)) {
 
-                    txtEmail.setText(quanLy.getMaQL());
-                    txtName.setText(quanLy.getTenQL());
-                    txtNgay.setText(quanLy.getNgay() + "");
-                    txtThang.setText(quanLy.getThang() + "");
-                    txtNam.setText(quanLy.getNam() + "");
-                    txtTK.setText(quanLy.getTK());
-                    txtMK.setText(quanLy.getMK());
+                    txtEmail.setText(tk.getEmail());
+                    txtName.setText(tk.getTen());
+                    txtNgay.setText(tk.getNgay() + "");
+                    txtThang.setText(tk.getThang() + "");
+                    txtNam.setText(tk.getNam() + "");
+                    txtTK.setText(tk.getTK());
+                    txtMK.setText(tk.getMK());
+                    txtSLTraCuu.setText(tk.getSLTraCuu() + "");
+//                    txtTK.setEnabled(false);
                 }
             }
         }
     }//GEN-LAST:event_tableMouseClicked
 
+    private void txtSLTraCuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSLTraCuuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSLTraCuuActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
@@ -617,6 +632,7 @@ public class Form_Admin extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -637,6 +653,7 @@ public class Form_Admin extends javax.swing.JPanel {
     private com.raven.swing.textField txtNam;
     private com.raven.swing.textField txtName;
     private com.raven.swing.textField txtNgay;
+    private com.raven.swing.textField txtSLTraCuu;
     private com.raven.swing.textField txtTK;
     private com.raven.swing.textField txtThang;
     // End of variables declaration//GEN-END:variables

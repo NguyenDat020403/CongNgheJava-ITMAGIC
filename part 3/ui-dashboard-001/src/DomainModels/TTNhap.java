@@ -7,9 +7,9 @@ package DomainModels;
 /**
 Ánh xạ thông tin
  */
-public class User {
+public class TTNhap {
     private     int ID;
-    private     String MaUser;
+    private     String EmailUser;
     private     String Name;
     private     int Ngay;
     private     int Thang;
@@ -19,12 +19,12 @@ public class User {
     private     String FTK;
 
 
-    public User() {
+    public TTNhap() {
     }
 
-    public User(int ID, String MaUser, String Name, int Ngay, int Thang, int Nam, String Sex, int SDT, String FTK) {
+    public TTNhap(int ID, String EmailUser, String Name, int Ngay, int Thang, int Nam, String Sex, int SDT, String FTK) {
         this.ID = ID;
-        this.MaUser = MaUser;
+        this.EmailUser = EmailUser;
         this.Name = Name;
         this.Ngay = Ngay;
         this.Thang = Thang;
@@ -43,12 +43,12 @@ public class User {
         this.ID = ID;
     }
 
-    public String getMaUser() {
-        return MaUser;
+    public String getEmailUser() {
+        return EmailUser;
     }
 
-    public void setMaUser(String MaUser) {
-        this.MaUser = MaUser;
+    public void setEmailUser(String EmailUser) {
+        this.EmailUser = EmailUser;
     }
 
     public String getName() {

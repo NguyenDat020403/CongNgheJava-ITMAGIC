@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Service.impl;
 
 
@@ -12,10 +8,6 @@ import Services.QuanLyService;
 import View_Model.QuanLyViewModel;
 import java.util.List;
 
-/**
- *
- * @author admin
- */
 public class QuanLy_Service_impl implements QuanLyService{
     QuanLyResponsitory QuanLyRes = new QuanLy_responsitory_impl();
 
@@ -30,13 +22,13 @@ public class QuanLy_Service_impl implements QuanLyService{
     }
 
     @Override
-    public int update(QuanLy n, String MaQL) {
-        return QuanLyRes.update(n, MaQL);
+    public int update(QuanLy n, String EmailQL) {
+        return QuanLyRes.update(n, EmailQL);
     }
 
     @Override
-    public int delete(String MaQL) {
-        return QuanLyRes.delete(MaQL);
+    public int delete(String EmailQL) {
+        return QuanLyRes.delete(EmailQL);
     }
 
     @Override

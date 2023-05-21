@@ -1,15 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package DomainModels;
 
-/**
- *
- * @author admin
- */
 public class SoCD {
-    private int ID;
     private String SoCD;
     private String NDCD;
     private String DiemManh;
@@ -19,8 +10,7 @@ public class SoCD {
     public SoCD() {
     }
 
-    public SoCD(int ID, String SoCD, String NDCD, String DiemManh, String DiemYeu, String TinhCach) {
-        this.ID = ID;
+    public SoCD( String SoCD, String NDCD, String DiemManh, String DiemYeu, String TinhCach) {
         this.SoCD = SoCD;
         this.NDCD = NDCD;
         this.DiemManh = DiemManh;
@@ -34,14 +24,6 @@ public class SoCD {
 
     public void setTinhCach(String TinhCach) {
         this.TinhCach = TinhCach;
-    }
-
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
     }
 
     public String getSoCD() {

@@ -1,29 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.raven.form;
 
 import Service.impl.CD_Service_impl;
-import Service.impl.User_Service_impl;
+import Service.impl.TTNhap_Service_impl;
 import Services.CDService;
-import Services.UserService;
 import Utilities.Auth;
 import View_Model.CDViewModel;
+import java.awt.Color;
 import java.util.List;
+import Services.TTNhapService;
 
-/**
- *
- * @author admin
- */
 public class Form_ThongTinTraCuu extends javax.swing.JFrame {
 
     List<CDViewModel> ListCD;
     CDService cdSer = new CD_Service_impl();
-    UserService userService = new User_Service_impl();    
-//    List<TCViewModel> ListTC;
-//    TCService tcSer = new TC_Service_impl();
-//    TinhCach tc = new TinhCach();
+    TTNhapService userService = new TTNhap_Service_impl();    
+
     public int TinhSoCD(){
     int ngay = Auth.user.getNgay(); 
     int thang = Auth.user.getThang();
@@ -40,13 +31,16 @@ public class Form_ThongTinTraCuu extends javax.swing.JFrame {
     }
 
     int SCD = ngay + thang + nam;
-    while(SCD>9){
-        SCD = SCD%10 + SCD/10;
+    if(SCD != 11){
+        while(SCD>9){
+            SCD = SCD%10 + SCD/10;
+        }
     }
     return SCD;
     }
     public Form_ThongTinTraCuu() {
         initComponents();
+        setBackground(new Color(0, 0, 0, 0));        
         ListCD = cdSer.getALL();
         txtName.setText(Auth.user.getName());
         txtSCD.setText(String.valueOf(TinhSoCD()));
@@ -116,6 +110,7 @@ public class Form_ThongTinTraCuu extends javax.swing.JFrame {
         setUndecorated(true);
 
         txtName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtName.setBorder(null);
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameActionPerformed(evt);
@@ -140,6 +135,7 @@ public class Form_ThongTinTraCuu extends javax.swing.JFrame {
         );
 
         txtNgay.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtNgay.setBorder(null);
         txtNgay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNgayActionPerformed(evt);
@@ -166,7 +162,9 @@ public class Form_ThongTinTraCuu extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("SỐ CHỦ ĐẠO:");
 
-        txtSCD.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        txtSCD.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        txtSCD.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtSCD.setBorder(null);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Các thông tin liên quan");
@@ -178,19 +176,27 @@ public class Form_ThongTinTraCuu extends javax.swing.JFrame {
         jLabel5.setText("Điểm mạnh:");
 
         txtTinhCach.setColumns(20);
+        txtTinhCach.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtTinhCach.setRows(5);
+        txtTinhCach.setBorder(null);
+        txtTinhCach.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane1.setViewportView(txtTinhCach);
 
         txtND.setColumns(20);
         txtND.setRows(5);
+        txtND.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jScrollPane2.setViewportView(txtND);
 
         txtDiemManh.setColumns(20);
+        txtDiemManh.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtDiemManh.setRows(5);
+        txtDiemManh.setBorder(null);
         jScrollPane3.setViewportView(txtDiemManh);
 
+        txtDiemYeu.setBorder(null);
         txtDiemYeu.setColumns(20);
         txtDiemYeu.setRows(5);
+        txtDiemYeu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jScrollPane5.setViewportView(txtDiemYeu);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -211,17 +217,16 @@ public class Form_ThongTinTraCuu extends javax.swing.JFrame {
                         .addGap(33, 33, 33)
                         .addGroup(txtThanSoHoc8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(txtThanSoHoc8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(txtThanSoHoc8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, txtThanSoHoc8Layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addGroup(txtThanSoHoc8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jScrollPane3)
-                                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 852, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 852, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jLabel3)
                                 .addComponent(jLabel5)
                                 .addComponent(jLabel2)
-                                .addComponent(jLabel7))
+                                .addComponent(jLabel7)
+                                .addGroup(txtThanSoHoc8Layout.createSequentialGroup()
+                                    .addGap(6, 6, 6)
+                                    .addGroup(txtThanSoHoc8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jScrollPane3)
+                                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 852, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 858, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 39, Short.MAX_VALUE))
         );
@@ -239,8 +244,8 @@ public class Form_ThongTinTraCuu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -328,34 +333,8 @@ public class Form_ThongTinTraCuu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnNextMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Form_ThongTinTraCuu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Form_ThongTinTraCuu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Form_ThongTinTraCuu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Form_ThongTinTraCuu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Form_ThongTinTraCuu().setVisible(true);

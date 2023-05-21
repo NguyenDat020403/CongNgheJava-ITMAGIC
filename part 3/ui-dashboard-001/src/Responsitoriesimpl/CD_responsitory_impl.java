@@ -14,8 +14,8 @@ public class CD_responsitory_impl implements CDResponsitory {
     @Override
     public List<CDViewModel> getALL() {
         //tìm dữ liệu id mã tên trên SQL
-        String sql = "SELECT TOP (1000) [ID]\n"
-                + "      ,[SoCD]\n"
+        String sql = "SELECT TOP (1000) "
+                + "       [SoCD]\n"
                 + "      ,[NDCD]\n"
                 + "      ,[DiemManh]\n"
                 + "      ,[DiemYeu]\n"
@@ -66,7 +66,7 @@ public class CD_responsitory_impl implements CDResponsitory {
                 + "	,[DiemManh]\n"
                 + "	,[DiemYeu]\n"
                 + "	,[TinhCach])\n"                
-                + "     VALUES(?,?,?,?)";
+                + "     VALUES(?,?,?,?,?)";
         return JDBC_helper.updateTongQuat(sql, cd.getSoCD(), cd.getNDCD(), cd.getDiemManh(), cd.getDiemYeu(), cd.getTinhCach());
     }
 
@@ -91,8 +91,8 @@ public class CD_responsitory_impl implements CDResponsitory {
 
     @Override
     public SoCD getOne(String SoCD) {
-        String query = "SELECT TOP (1000) [ID]\n"
-                + "      ,[SoCD]\n"
+        String query = "SELECT TOP (1000)\n"
+                + "      [SoCD]\n"
                 + "      ,[NDCD]\n"    
                 + "	,[DiemManh]\n"
                 + "	,[DiemYeu]\n"      
@@ -120,8 +120,8 @@ public class CD_responsitory_impl implements CDResponsitory {
     @Override
     public List<CDViewModel> select(String SoCD) {
                 ArrayList<CDViewModel> cdList = new ArrayList<>();
-        String query = "SELECT TOP (1000) [ID]\n"
-                + "      ,[SoCD]\n"
+        String query = "SELECT TOP (1000) \n"
+                + "      [SoCD]\n"
                 + "      ,[NDCD]\n"    
                 + "	,[DiemManh]\n"
                 + "	,[DiemYeu]\n"      

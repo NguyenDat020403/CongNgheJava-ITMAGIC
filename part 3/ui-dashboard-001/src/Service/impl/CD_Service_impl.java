@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Service.impl;
 
 import DomainModels.SoCD;
@@ -11,10 +7,6 @@ import Services.CDService;
 import View_Model.CDViewModel;
 import java.util.List;
 
-/**
- *
- * @author admin
- */
 public class CD_Service_impl implements CDService{
     CDResponsitory CDRes = new CD_responsitory_impl();
 

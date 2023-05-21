@@ -1,9 +1,8 @@
 
 package com.raven.form;
 
-import Service.impl.User_Service_impl;
-import Services.UserService;
-import View_Model.UserViewModel;
+import Service.impl.TTNhap_Service_impl;
+import View_Model.TTNhapViewModel;
 import com.raven.component.Funtion;
 import com.raven.swing.ScrollBar;
 import java.awt.Color;
@@ -11,15 +10,16 @@ import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
+import Services.TTNhapService;
 
 public class Form_User extends javax.swing.JPanel {
-    List<UserViewModel> ListUser;
-    UserService userSer = new User_Service_impl();
+    List<TTNhapViewModel> ListTT;
+    TTNhapService ttSer = new TTNhap_Service_impl();
     DefaultTableModel dtm;
     
-    void showDataTable(List<UserViewModel> lst) {
+    void showDataTable(List<TTNhapViewModel> lst) {
         dtm.setRowCount(0);
-        for (UserViewModel x : lst) {
+        for (TTNhapViewModel x : lst) {
             dtm.addRow(x.toDataRow());
         }
     }
@@ -32,24 +32,24 @@ public class Form_User extends javax.swing.JPanel {
         p.setBackground(Color.WHITE);
         spTable.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
         dtm = (DefaultTableModel) table.getModel();
-        ListUser = userSer.getALL();
-        showDataTable(ListUser);
+        ListTT = ttSer.getALL();
+        showDataTable(ListTT);
     }
 
     public void select() {
         dtm.setRowCount(0);
         if (searchText1.getText().equals("")) {
-            List<UserViewModel> userList = userSer.select(searchText2.getText().trim());
+            List<TTNhapViewModel> userList = ttSer.select(searchText2.getText().trim());
             showDataTable(userList);
         } else {
-            List<UserViewModel> userList = userSer.select(searchText1.getText().trim());
+            List<TTNhapViewModel> userList = ttSer.select(searchText1.getText().trim());
             showDataTable(userList);
         }
 
     }
     public void SortName() {
         dtm.setRowCount(0);
-            List<UserViewModel> userList = userSer.SortName(Nam1.getText().trim(), Nam2.getText().trim());
+            List<TTNhapViewModel> userList = ttSer.SortName(Nam1.getText().trim(), Nam2.getText().trim());
             showDataTable(userList);
     }
     
@@ -88,7 +88,7 @@ public class Form_User extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Email", "Name", "Day", "Month", "Year", "Sex", "PhoneNumber", "Account", "Password"
+                "ID", "Email", "Họ Tên", "Ngày", "Tháng", "Năm", "Giới tính", "SDT", "Tài khoản", "Mật khẩu"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -106,13 +106,14 @@ public class Form_User extends javax.swing.JPanel {
         panelBorder1Layout.setHorizontalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBorder1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panelBorder1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(spTable, javax.swing.GroupLayout.DEFAULT_SIZE, 973, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelBorder1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel1))
+                    .addGroup(panelBorder1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(spTable, javax.swing.GroupLayout.PREFERRED_SIZE, 911, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         panelBorder1Layout.setVerticalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,7 +223,7 @@ public class Form_User extends javax.swing.JPanel {
                     .addGroup(panelBorder12Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         panelBorder12Layout.setVerticalGroup(
             panelBorder12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,7 +238,7 @@ public class Form_User extends javax.swing.JPanel {
                 .addGroup(panelBorder12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Nam1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Nam2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
                 .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addComponent(jLabel5)
@@ -252,7 +253,7 @@ public class Form_User extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(panelBorder1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelBorder12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(15, 15, 15))
         );
@@ -297,7 +298,14 @@ public class Form_User extends javax.swing.JPanel {
         funtion.setVisible(true);
     }//GEN-LAST:event_jLabel5MouseClicked
 
+    public static void main(String args[]) {
 
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Form_User().setVisible(true);
+            }
+        });
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Nam1;
     private javax.swing.JTextField Nam2;

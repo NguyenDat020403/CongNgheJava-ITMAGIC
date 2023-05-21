@@ -3,21 +3,21 @@ package loginandsignup;
 
 import DomainModels.QuanLy;
 import DomainModels.TaiKhoan;
-import DomainModels.User;
+import DomainModels.TTNhap;
 import Service.impl.QuanLy_Service_impl;
 import Service.impl.TK_Service_impl;
-import Service.impl.User_Service_impl;
+import Service.impl.TTNhap_Service_impl;
 import Services.QuanLyService;
 import Services.TKService;
-import Services.UserService;
 import Utilities.Auth;
 import com.raven.form.Form_TraCuu;
 import com.raven.main.Main;
 import javax.swing.JOptionPane;
+import Services.TTNhapService;
 
 
 public class Login extends javax.swing.JFrame {
-    UserService userService = new User_Service_impl();
+    TTNhapService ttNhapService = new TTNhap_Service_impl();
     TKService tkService = new TK_Service_impl();
     QuanLyService quanLyService = new QuanLy_Service_impl();
   
@@ -45,6 +45,7 @@ public class Login extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         txtTK = new com.raven.swing.AccountText();
         txtMK = new com.raven.swing.PasswordText();
+        btnForget = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOGIN");
@@ -145,10 +146,22 @@ public class Login extends javax.swing.JFrame {
 
         txtMK.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
 
+        btnForget.setForeground(new java.awt.Color(102, 153, 255));
+        btnForget.setText("Forget password? ");
+        btnForget.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnForgetMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout LeftLayout = new javax.swing.GroupLayout(Left);
         Left.setLayout(LeftLayout);
         LeftLayout.setHorizontalGroup(
             LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LeftLayout.createSequentialGroup()
+                .addGap(160, 160, 160)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LeftLayout.createSequentialGroup()
                 .addGroup(LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(LeftLayout.createSequentialGroup()
@@ -166,12 +179,11 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LeftLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LeftLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnForget)))
                 .addContainerGap())
-            .addGroup(LeftLayout.createSequentialGroup()
-                .addGap(160, 160, 160)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         LeftLayout.setVerticalGroup(
             LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,7 +200,9 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(txtMK, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnForget)
+                .addGap(37, 37, 37)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -248,12 +262,15 @@ public class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dangNhap();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnForgetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnForgetMouseClicked
+        
+    }//GEN-LAST:event_btnForgetMouseClicked
  public void dangNhap() {
         try {
             String taiKhoan = txtTK.getText();
             String pass = new String(txtMK.getPassword());
-            User user = userService.getOne(taiKhoan);
-            QuanLy quanLy = quanLyService.getOne(taiKhoan);
+            TTNhap tt = ttNhapService.getOne(taiKhoan);
             TaiKhoan tk = tkService.getOne(taiKhoan);
             StringBuilder sb = new StringBuilder();
 
@@ -261,7 +278,7 @@ public class Login extends javax.swing.JFrame {
                 sb.append("Bạn chưa nhập 'Tài khoản'");
             } else if (new String(txtMK.getPassword()).equals("")) {
                 sb.append("Bạn chưa nhập 'Mật khẩu'");
-            } else if (user == null && quanLy == null) {
+            } else if (tk == null ) {
                 sb.append("Sai 'Tài khoản'");
             } else if (!pass.equals(tk.getMK())) {
                 sb.append("Sai 'Mật khẩu'");
@@ -271,9 +288,7 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showConfirmDialog(this, sb.toString(), "ERROR!", JOptionPane.ERROR_MESSAGE);
                 return;
             } else {
-                Auth.user = user;
                 Auth.taiKhoan = tk;
-                Auth.quanLy = quanLy;
                 this.dispose();
 
                 if (Auth.taiKhoan.getChucVu().trim().equals("admin")) {
@@ -293,6 +308,7 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Left;
     private javax.swing.JPanel Right;
+    private javax.swing.JLabel btnForget;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

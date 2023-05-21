@@ -8,7 +8,7 @@ package com.raven.main;
 import com.raven.event.EventMenuSelected;
 import com.raven.form.Form_Admin;
 import com.raven.form.Form_User;
-import com.raven.form.Form_Algorithm;
+import com.raven.form.Form_SCD;
 import com.raven.form.Form_Home;
 import java.awt.Color;
 import javax.swing.JComponent;
@@ -26,7 +26,7 @@ public class Main extends javax.swing.JFrame {
     private Form_Home home;
     private Form_Admin form1;
     private Form_User form2;
-    private Form_Algorithm form3;
+    private Form_SCD form3;
 
     public Main() {
         initComponents();
@@ -34,7 +34,7 @@ public class Main extends javax.swing.JFrame {
         home = new Form_Home();
         form1 = new Form_Admin();
         form2 = new Form_User();
-        form3 = new Form_Algorithm();
+        form3 = new Form_SCD();
         menu.initMoving(Main.this);
         menu.addEventMenuSelected(new EventMenuSelected() {
             @Override

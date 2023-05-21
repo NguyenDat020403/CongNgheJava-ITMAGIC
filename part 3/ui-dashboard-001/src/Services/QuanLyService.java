@@ -17,9 +17,9 @@ public interface QuanLyService {
     List<QuanLyViewModel> getALL();
     int creat(QuanLy n);
 
-    int update(QuanLy n, String MaQL);
+    int update(QuanLy n, String EmailQL);
 
-    int delete(String MaQL);
+    int delete(String EmailQL);
     QuanLy getOne(String FTK);
     List<QuanLyViewModel> select(String TenQL);
     

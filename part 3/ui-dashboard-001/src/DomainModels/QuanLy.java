@@ -10,7 +10,7 @@ package DomainModels;
  */
 public class QuanLy {
     private int ID;
-    private String  MaQL;
+    private String  EmailQL;
     private String  TenQL;
     private int Ngay;
     private int Thang;
@@ -20,9 +20,9 @@ public class QuanLy {
     public QuanLy() {
     }
 
-    public QuanLy(int ID, String MaQL, String TenQL, int Ngay, int Thang, int Nam, String FTK) {
+    public QuanLy(int ID, String EmailQL, String TenQL, int Ngay, int Thang, int Nam, String FTK) {
         this.ID = ID;
-        this.MaQL = MaQL;
+        this.EmailQL = EmailQL;
         this.TenQL = TenQL;
         this.Ngay = Ngay;
         this.Thang = Thang;
@@ -39,12 +39,12 @@ public class QuanLy {
         this.ID = ID;
     }
 
-    public String getMaQL() {
-        return MaQL;
+    public String getEmailQL() {
+        return EmailQL;
     }
 
-    public void setMaQL(String MaQL) {
-        this.MaQL = MaQL;
+    public void setEmailQL(String EmailQL) {
+        this.EmailQL = EmailQL;
     }
 
     public String getTenQL() {

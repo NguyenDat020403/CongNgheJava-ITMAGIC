@@ -1,4 +1,4 @@
-package com.raven.model;
+package View_Model;
 
 import javax.swing.Icon;
 

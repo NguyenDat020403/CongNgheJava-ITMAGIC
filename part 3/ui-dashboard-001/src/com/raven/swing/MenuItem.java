@@ -1,6 +1,6 @@
 package com.raven.swing;
 
-import com.raven.model.Model_Menu;
+import View_Model.Model_Menu;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;

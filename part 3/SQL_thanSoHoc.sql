@@ -1,5 +1,5 @@
-﻿create database ThanSoHoc
-use ThanSoHoc
+﻿--create database ThanSoHoc2
+--use ThanSoHoc2
 
 CREATE TABLE TaiKhoan(
 	TK NVARCHAR(50) PRIMARY KEY NOT NULL,
@@ -109,7 +109,7 @@ VALUES
 'Người có số vận hạn là 9 có thể có khuynh hướng tự ái và cảm thấy mình là người độc đoán. Họ có thể gặp khó khăn trong việc chấp nhận sự thay đổi và phải đối mặt với những điều không như mong đợi.',
 'Những người có số chu kỳ vận số 9 thường rất đam mê và có tình cảm sâu sắc. Bạn có thể có xu hướng lãng mạn và tìm kiếm mối quan hệ tình cảm đầy yêu thương và cảm thông. Tuy nhiên, Bạn cũng có thể cảm thấy khó khăn khi phải đối mặt với sự không công bằng và thiếu hiểu biết trong mối quan hệ. Bạn cần tìm một người đối tác đủ thông minh và đáng tin cậy để chia sẻ mối quan tâm của mình và đồng cảm với Bạn.');
 
-INSERT INTO QuanLy(MaQL, TenQL, Ngay, Thang, Nam, FTK)
+INSERT INTO QuanLy(EmailQL, TenQL, Ngay, Thang, Nam, FTK)
 VALUES
 ('QL001','Nguyen Van A','1','12','2003','cun123'),
 ('QL002','Nguyen Van b','1','11','2003','cun123');

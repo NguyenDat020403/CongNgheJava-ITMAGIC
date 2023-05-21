@@ -1,6 +1,6 @@
 package com.raven.component;
 
-import com.raven.model.Model_Card;
+import View_Model.Model_Card;
 import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;

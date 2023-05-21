@@ -1,11 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package DomainModels;
 
 public class ChuKy {
-    private  int ID;
+
     private String SoCK;
     private String ND;
     private String BienPhap;
@@ -14,20 +10,11 @@ public class ChuKy {
     public ChuKy() {
     }
 
-    public ChuKy(int ID, String SoCK, String ND, String BienPhap, String TinhYeu) {
-        this.ID = ID;
+    public ChuKy(String SoCK, String ND, String BienPhap, String TinhYeu) {
         this.SoCK = SoCK;
         this.ND = ND;
         this.BienPhap = BienPhap;
         this.TinhYeu = TinhYeu;
-    }
-
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
     }
 
     public String getSoCK() {
@@ -61,6 +48,5 @@ public class ChuKy {
     public void setTinhYeu(String TinhYeu) {
         this.TinhYeu = TinhYeu;
     }
-    
-    
+
 }
