@@ -159,20 +159,20 @@ public class Form_ThongTinTraCuu extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("UTM Impact", 0, 24)); // NOI18N
         jLabel1.setText("SỐ CHỦ ĐẠO:");
 
         txtSCD.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         txtSCD.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtSCD.setBorder(null);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("UTM Impact", 0, 18)); // NOI18N
         jLabel2.setText("Các thông tin liên quan");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("UTM Impact", 0, 18)); // NOI18N
         jLabel3.setText("Tính cách:");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("UTM Impact", 0, 18)); // NOI18N
         jLabel5.setText("Điểm mạnh:");
 
         txtTinhCach.setColumns(20);
@@ -182,6 +182,7 @@ public class Form_ThongTinTraCuu extends javax.swing.JFrame {
         txtTinhCach.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane1.setViewportView(txtTinhCach);
 
+        txtND.setBorder(null);
         txtND.setColumns(20);
         txtND.setRows(5);
         txtND.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -199,7 +200,7 @@ public class Form_ThongTinTraCuu extends javax.swing.JFrame {
         txtDiemYeu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jScrollPane5.setViewportView(txtDiemYeu);
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("UTM Impact", 0, 18)); // NOI18N
         jLabel7.setText("Điểm yếu:");
 
         javax.swing.GroupLayout txtThanSoHoc8Layout = new javax.swing.GroupLayout(txtThanSoHoc8);
@@ -209,13 +210,14 @@ public class Form_ThongTinTraCuu extends javax.swing.JFrame {
             .addGroup(txtThanSoHoc8Layout.createSequentialGroup()
                 .addGroup(txtThanSoHoc8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(txtThanSoHoc8Layout.createSequentialGroup()
-                        .addGap(304, 304, 304)
+                        .addGap(396, 396, 396)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtSCD, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(txtThanSoHoc8Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(txtThanSoHoc8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+<<<<<<< HEAD
                             .addGroup(txtThanSoHoc8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel3)
                                 .addComponent(jLabel5)
@@ -227,33 +229,66 @@ public class Form_ThongTinTraCuu extends javax.swing.JFrame {
                                         .addComponent(jScrollPane3)
                                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 852, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))))
+=======
+                            .addGroup(txtThanSoHoc8Layout.createSequentialGroup()
+                                .addGroup(txtThanSoHoc8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 852, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(txtThanSoHoc8Layout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addComponent(jLabel5))
+                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 852, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 852, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(6, 6, 6))
+>>>>>>> ae17698507dee66cc98f3865d45280e8794cae59
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 858, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 39, Short.MAX_VALUE))
+            .addGroup(txtThanSoHoc8Layout.createSequentialGroup()
+                .addGroup(txtThanSoHoc8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(txtThanSoHoc8Layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabel3))
+                    .addGroup(txtThanSoHoc8Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, txtThanSoHoc8Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(377, 377, 377))
         );
         txtThanSoHoc8Layout.setVerticalGroup(
             txtThanSoHoc8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(txtThanSoHoc8Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(37, 37, 37)
                 .addGroup(txtThanSoHoc8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(txtSCD, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtSCD, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(2, 2, 2)
                 .addComponent(jLabel3)
+<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> ae17698507dee66cc98f3865d45280e8794cae59
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57))
+                .addGap(80, 80, 80))
         );
 
         btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/next-50.png"))); // NOI18N
@@ -269,17 +304,16 @@ public class Form_ThongTinTraCuu extends javax.swing.JFrame {
             panelThanSoHoc1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelThanSoHoc1Layout.createSequentialGroup()
                 .addGap(60, 60, 60)
-                .addGroup(panelThanSoHoc1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelThanSoHoc1Layout.createSequentialGroup()
-                        .addComponent(txtThanSoHoc8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 60, Short.MAX_VALUE))
-                    .addGroup(panelThanSoHoc1Layout.createSequentialGroup()
-                        .addComponent(txtThanSoHoc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(71, 71, 71)
-                        .addComponent(txtThanSoHoc2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnNext)
-                        .addContainerGap())))
+                .addComponent(txtThanSoHoc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71)
+                .addComponent(txtThanSoHoc2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 357, Short.MAX_VALUE)
+                .addComponent(btnNext)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelThanSoHoc1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtThanSoHoc8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
         );
         panelThanSoHoc1Layout.setVerticalGroup(
             panelThanSoHoc1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -293,9 +327,9 @@ public class Form_ThongTinTraCuu extends javax.swing.JFrame {
                     .addGroup(panelThanSoHoc1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnNext)))
-                .addGap(46, 46, 46)
-                .addComponent(txtThanSoHoc8, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(txtThanSoHoc8, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -308,7 +342,7 @@ public class Form_ThongTinTraCuu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelThanSoHoc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelThanSoHoc1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
