@@ -484,8 +484,6 @@ public class SignUp extends javax.swing.JFrame {
         
         TaiKhoan tk = new TaiKhoan();
 
-        TTNhap user = new TTNhap();
-
         tk.setTK(taikhoan);
         tk.setMK(mk);
         tk.setEmail(ma);

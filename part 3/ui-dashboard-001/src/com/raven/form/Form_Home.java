@@ -14,27 +14,39 @@ import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 
 public class Form_Home extends javax.swing.JPanel {
+
     List<TTViewModel> ListTT;
     TTService ttSer = new TT_Service_impl();
     DefaultTableModel dtm;
-    
+
     void showDataTable(List<TTViewModel> lst) {
         dtm.setRowCount(0);
         for (TTViewModel x : lst) {
             dtm.addRow(x.toDataRow());
         }
     }
+
     public void select() {
         dtm.setRowCount(0);
-        List<TTViewModel> ttList = ttSer.select(searchText.getText().trim(),searchText.getText().trim());
+        List<TTViewModel> ttList = ttSer.select(searchText.getText().trim(), searchText.getText().trim());
         showDataTable(ttList);
     }
-//    int count(){  
-//        
-//    }
+
+    int count(){
+        int a=0;
+        ListTT = ttSer.getALL();
+        for (TTViewModel thongTin : ListTT) {
+            a++;
+        }
+        return a;
+    }
+    int counNgay(){
+        return 0;
+    }
+    
     public Form_Home() {
         initComponents();
-        card1.setData(new Model_Card(new ImageIcon(getClass().getResource("/com/raven/icon/stock.png")), "LƯỢT TRA CỨU", "26.564.889+", "Tra cứu chính xác - tin cậy."));
+        card1.setData(new Model_Card(new ImageIcon(getClass().getResource("/com/raven/icon/stock.png")), "LƯỢT TRA CỨU", String.valueOf(count()), "Tra cứu chính xác - tin cậy."));
         card2.setData(new Model_Card(new ImageIcon(getClass().getResource("/com/raven/icon/profit.png")), "DOANH THU / NGÀY", "423$", "Doanh thu/Ngày"));
         card3.setData(new Model_Card(new ImageIcon(getClass().getResource("/com/raven/icon/flag.png")), "LƯỢT TRA CỨU / NGÀY", "423 lượt", "Ứng dụng phổ biến tại Việt Nam"));
         //  add row table
@@ -54,6 +66,16 @@ public class Form_Home extends javax.swing.JPanel {
         txtYear.setText(String.valueOf(Auth.taiKhoan.getNam()));
         txtAcc.setText(Auth.taiKhoan.getTK());
         txtPass.setText(Auth.taiKhoan.getMK());
+
+        //khóa txt không được sửa
+        txtEmail.setEnabled(false);
+        txtName.setEnabled(false);
+        txtDay.setEnabled(false);
+        txtMonth.setEnabled(false);
+        txtYear.setEnabled(false);
+        txtAcc.setEnabled(false);
+        txtPass.setEnabled(false);
+
     }
 
     @SuppressWarnings("unchecked")
@@ -166,6 +188,12 @@ public class Form_Home extends javax.swing.JPanel {
         });
 
         jLabel4.setText("Name:");
+
+        txtDay.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtMonth.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtYear.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel11.setText("Account:");
 

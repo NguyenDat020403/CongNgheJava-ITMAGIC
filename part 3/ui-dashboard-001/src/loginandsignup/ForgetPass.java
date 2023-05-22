@@ -3,8 +3,9 @@ package loginandsignup;
 import DomainModels.TaiKhoan;
 import Service.impl.TK_Service_impl;
 import Services.TKService;
+import Utilities.Auth;
+import static Utilities.Auth.taiKhoan;
 import View_Model.TKViewModel;
-import java.awt.Color;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -14,7 +15,20 @@ public class ForgetPass extends javax.swing.JFrame {
     public ForgetPass() {
         initComponents();
     }
-
+    public int Check() {
+        ListTK = tkSer.getALL();
+        int a = 0;
+        for (TKViewModel taiKhoan : ListTK) {
+            if (taiKhoan.getChucVu().equals("user")) {
+                if (taiKhoan.getTK().equals(txtTK.getText())) {
+                    return a = 1;
+                } else if (taiKhoan.getEmail().equals(txtEmail.getText())) {
+                    return a = 1;
+                }
+            }
+        }
+        return a;
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -236,6 +250,8 @@ public class ForgetPass extends javax.swing.JFrame {
 
     private void btnChangeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChangeMouseClicked
         StringBuilder sb = new StringBuilder();
+        String taiKhoan = txtTK.getText();
+        TaiKhoan tk = tkSer.getOne(taiKhoan);        
         if (txtEmail.getText().equals("")) {
             sb.append("Bạn chưa nhập 'Email'");
         }else if (txtTK.getText().equals("")) {
@@ -243,19 +259,30 @@ public class ForgetPass extends javax.swing.JFrame {
         } else if (txtMK.getPassword().equals("")) {
             sb.append("Bạn chưa nhập 'Mật khẩu'");
         }
+        if (Check() != 1) {
+            JOptionPane.showConfirmDialog(this, "Tài khoản hoặc Email sai", "ERROR!", JOptionPane.ERROR_MESSAGE);
+            return;
+        } 
         if (sb.length() > 0) {
             JOptionPane.showConfirmDialog(this, sb.toString(), "ERROR!", JOptionPane.ERROR_MESSAGE);
             return;
         }  
+        
+        Auth.taiKhoan = tk;
         String taikhoan = txtTK.getText();
         String mk = new String(txtMK.getPassword());        
-        TaiKhoan tk = new TaiKhoan();
         
         tk.setTK(taikhoan);
         tk.setMK(mk);
+        tk.setChucVu("user");
         tkSer.update(tk, mk);
         
         JOptionPane.showConfirmDialog(this, "Success!");
+        Login LoginFrame = new Login();
+        LoginFrame.setVisible(true);
+        LoginFrame.pack();
+        LoginFrame.setLocationRelativeTo(null);
+        this.dispose();        
     }//GEN-LAST:event_btnChangeMouseClicked
 
     private void txtMKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMKActionPerformed
@@ -264,7 +291,6 @@ public class ForgetPass extends javax.swing.JFrame {
 
     private void btnOTPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOTPActionPerformed
                 txtgetEmail.setText(txtEmail.getText());
-
     }//GEN-LAST:event_btnOTPActionPerformed
 
     public static void main(String args[]) {

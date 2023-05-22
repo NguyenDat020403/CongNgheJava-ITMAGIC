@@ -341,17 +341,7 @@ public class Form_TraCuu extends javax.swing.JFrame {
             JOptionPane.showConfirmDialog(this, "Trùng Email.","ERROR!", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        //
 
-//        if (ngayInt>31 || 0 >= ngayInt) {
-//            sb.append("Bạn chưa nhập đúng ngày tháng năm sinh!");
-//        } else if (thangInt>12 || 0 >= thangInt) {
-//            sb.append("Bạn chưa nhập đúng ngày tháng năm sinh!");
-//        } else if (namInt < 1900 || namInt > 2100) {
-//            sb.append("Bạn chưa nhập đúng ngày tháng năm sinh!");
-//        }
-
-        //
         if (sb.length() > 0) {
             JOptionPane.showConfirmDialog(this, sb.toString(), "ERROR!", JOptionPane.ERROR_MESSAGE);
             return;
@@ -367,6 +357,19 @@ public class Form_TraCuu extends javax.swing.JFrame {
         String nam = txtNam.getText();
         int namInt = Integer.parseInt(nam);
 
+        if (ngayInt > 31 || 0 >= ngayInt) {
+            sb.append("Bạn chưa nhập đúng ngày tháng năm sinh!");
+        } else if (thangInt > 12 || 0 >= thangInt) {
+            sb.append("Bạn chưa nhập đúng ngày tháng năm sinh!");
+        } else if (namInt < 1900 || namInt > 2100) {
+            sb.append("Bạn chưa nhập đúng ngày tháng năm sinh!");
+        }
+
+        if (sb.length() > 0) {
+            JOptionPane.showConfirmDialog(this, sb.toString(), "ERROR!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         while (ngayInt > 9) {
             ngayInt = ngayInt % 10 + ngayInt / 10;
         }
@@ -399,11 +402,11 @@ public class Form_TraCuu extends javax.swing.JFrame {
         ttNhap.setNam(namInt);
         ttNhap.setSex(sex);
         ttNhap.setSDT(sdtInt);
-//        ttNhap.setFTK( Auth.taiKhoan.getTK());
+        ttNhap.setFTK( Auth.taiKhoan.getTK());
         //thêm dữ liệu vào danh sách
         ttNhapSer.creat(ttNhap);
         
-//        Auth.user = ttNhap;
+        Auth.user = ttNhap;
         
         ThongTinTraCuu ttTraCuu = new ThongTinTraCuu();
         ListTTNhap = ttNhapSer.getALL();
@@ -412,7 +415,6 @@ public class Form_TraCuu extends javax.swing.JFrame {
                 ttTraCuu.setIDThongTinNhap(tt.getID());
             }
         }
-        
         ttTraCuu.setIDSCD(SCD);
         ttTraCuu.setIDCK(SCK);
         ttTraCuu.setNgayTraCuu(java.sql.Date.valueOf(currentDate));

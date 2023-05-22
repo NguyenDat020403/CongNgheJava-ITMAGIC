@@ -341,10 +341,19 @@
         <Component class="com.raven.swing.textField" name="txtName">
         </Component>
         <Component class="com.raven.swing.textField" name="txtDay">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+          </Properties>
         </Component>
         <Component class="com.raven.swing.textField" name="txtMonth">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+          </Properties>
         </Component>
         <Component class="com.raven.swing.textField" name="txtYear">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
           <Properties>

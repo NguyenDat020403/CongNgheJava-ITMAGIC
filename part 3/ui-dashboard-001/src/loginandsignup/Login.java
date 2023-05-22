@@ -260,7 +260,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnForgetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnForgetMouseClicked
-        
+        ForgetPass forget = new ForgetPass();
+        forget.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnForgetMouseClicked
  public void dangNhap() {
         try {

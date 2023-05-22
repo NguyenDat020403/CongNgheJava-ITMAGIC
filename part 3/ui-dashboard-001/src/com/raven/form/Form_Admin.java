@@ -52,6 +52,18 @@ public class Form_Admin extends javax.swing.JPanel {
         txtMK.setText("");
         txtSLTraCuu.setText("");
     }
+    public int Check() {
+        ListTK = tkSer.getALL();
+        int a = 0;
+        for (TKViewModel taiKhoan : ListTK) {
+            if (taiKhoan.getTK().equals(txtTK.getText())) {
+                return a = 1;
+            } else if (taiKhoan.getEmail().equals(txtEmail.getText())) {
+                return a = 2;
+            }
+        }
+        return a;
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -357,10 +369,10 @@ public class Form_Admin extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnFix, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelBorder3Layout.createSequentialGroup()
-                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
                         .addComponent(txtSLTraCuu, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
         panelBorder3Layout.setVerticalGroup(
             panelBorder3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -465,6 +477,8 @@ public class Form_Admin extends javax.swing.JPanel {
             JOptionPane.showConfirmDialog(this, sb.toString(), "ERROR!", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        
+        
         String ma = txtEmail.getText();
         String ten = txtName.getText();
         String ngay = txtNgay.getText();
@@ -477,15 +491,27 @@ public class Form_Admin extends javax.swing.JPanel {
         int slInt = Integer.parseInt(sl);
         String taikhoan = txtTK.getText();
         String mk = new String(txtMK.getPassword());
-
+        
+        if (ngayInt > 31 || 0 >= ngayInt) {
+            sb.append("Bạn chưa nhập đúng ngày tháng năm sinh!");
+        } else if (thangInt > 12 || 0 >= thangInt) {
+            sb.append("Bạn chưa nhập đúng ngày tháng năm sinh!");
+        } else if (namInt < 1900 || namInt > 2100) {
+            sb.append("Bạn chưa nhập đúng ngày tháng năm sinh!");
+        }
+        
+        if (sb.length() > 0) {
+            JOptionPane.showConfirmDialog(this, sb.toString(), "ERROR!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }  
         tk.setTK(taikhoan);
         tk.setMK(mk);
-        tkSer.update(tk, mk);
         tk.setEmail(ma);
         tk.setTen(ten);
         tk.setNgay(ngayInt);
         tk.setThang(thangInt);
         tk.setNam(namInt);
+        tk.setChucVu("admin");
         tk.setSLTraCuu(slInt);
         
         //thêm dữ liệu vào danh sách
@@ -518,8 +544,14 @@ public class Form_Admin extends javax.swing.JPanel {
             sb.append("Bạn chưa nhập 'Mật khẩu'");
         }
         
+        if (Check() == 1) {
+            JOptionPane.showConfirmDialog(this, "Trùng tài khoản.", "ERROR!", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else if (Check() == 2) {
+            JOptionPane.showConfirmDialog(this, "Trùng Email.", "ERROR!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         
-        //
         if (sb.length() > 0) {
             JOptionPane.showConfirmDialog(this, sb.toString(), "ERROR!", JOptionPane.ERROR_MESSAGE);
             return;
@@ -540,12 +572,12 @@ public class Form_Admin extends javax.swing.JPanel {
 
         tk.setTK(taikhoan);
         tk.setMK(mk);
-        tkSer.update(tk, mk);
         tk.setEmail(ma);
         tk.setTen(ten);
         tk.setNgay(ngayInt);
         tk.setThang(thangInt);
         tk.setNam(namInt);
+        tk.setChucVu("admin");        
         tk.setSLTraCuu(slInt);
         
         //thêm dữ liệu vào danh sách
