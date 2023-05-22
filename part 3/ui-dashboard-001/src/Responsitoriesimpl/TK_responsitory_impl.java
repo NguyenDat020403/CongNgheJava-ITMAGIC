@@ -3,7 +3,6 @@ package Responsitoriesimpl;
 import DomainModels.TaiKhoan;
 import Responsitories.TKResponsitory;
 import Utilities.JDBC_helper;
-import View_Model.QuanLyViewModel;
 import View_Model.TKViewModel;
 import java.sql.ResultSet;
 import java.sql.SQLException;

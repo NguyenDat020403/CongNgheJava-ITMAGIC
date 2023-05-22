@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class DB_connection {
     public static final String HOSTNAME = "localhost";
     public static final String PORT = "1433";
-    public static final String DBNAME = "ThanSoHoc";
+    public static final String DBNAME = "thanSoHoc";
     public static final String USERNAME = "sa";
     public static final String PASSWORD = "123456";
     

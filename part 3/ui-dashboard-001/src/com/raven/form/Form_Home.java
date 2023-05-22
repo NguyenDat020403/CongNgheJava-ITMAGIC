@@ -47,13 +47,13 @@ public class Form_Home extends javax.swing.JPanel {
         dtm = (DefaultTableModel) table.getModel();
         ListTT = ttSer.getALL();
         showDataTable(ListTT);
-//        txtEmail.setText(Auth.taiKhoan.getEmail());
-//        txtName.setText(Auth.taiKhoan.getTen());
-//        txtDay.setText(String.valueOf(Auth.taiKhoan.getNgay()));
-//        txtMonth.setText(String.valueOf(Auth.taiKhoan.getThang()));
-//        txtYear.setText(String.valueOf(Auth.taiKhoan.getNam()));
-//        txtAcc.setText(Auth.taiKhoan.getTK());
-//        txtPass.setText(Auth.taiKhoan.getMK());
+        txtEmail.setText(Auth.taiKhoan.getEmail());
+        txtName.setText(Auth.taiKhoan.getTen());
+        txtDay.setText(String.valueOf(Auth.taiKhoan.getNgay()));
+        txtMonth.setText(String.valueOf(Auth.taiKhoan.getThang()));
+        txtYear.setText(String.valueOf(Auth.taiKhoan.getNam()));
+        txtAcc.setText(Auth.taiKhoan.getTK());
+        txtPass.setText(Auth.taiKhoan.getMK());
     }
 
     @SuppressWarnings("unchecked")

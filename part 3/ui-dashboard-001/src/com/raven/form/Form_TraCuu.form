@@ -120,7 +120,7 @@
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="UTM Impact" size="14" style="0"/>
+                  <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Email:"/>
               </Properties>
@@ -162,7 +162,7 @@
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="UTM Impact" size="14" style="0"/>
+                  <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="SDT:"/>
               </Properties>
@@ -204,7 +204,7 @@
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="UTM Impact" size="14" style="0"/>
+                  <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="H&#x1ecd; T&#xea;n:"/>
               </Properties>
@@ -246,7 +246,7 @@
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="UTM Impact" size="14" style="0"/>
+                  <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="T&#xea;n &#x111;&#x1ec7;m:"/>
               </Properties>
@@ -288,9 +288,6 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="UTM Impact" size="14" style="0"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Sex:"/>
               </Properties>
             </Component>
@@ -351,15 +348,9 @@
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-<<<<<<< HEAD
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ng&#xe0;y sinh:"/>
-=======
-                  <Font name="UTM Impact" size="14" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="BirthDay:"/>
->>>>>>> ae17698507dee66cc98f3865d45280e8794cae59
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtNgay">
@@ -373,9 +364,6 @@
         <Component class="com.raven.swing.Button" name="btnTraCuu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Tra c&#x1ee9;u"/>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="UTM Impact" size="18" style="0"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnTraCuuMouseClicked"/>

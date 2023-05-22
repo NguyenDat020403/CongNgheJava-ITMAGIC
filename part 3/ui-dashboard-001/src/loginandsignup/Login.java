@@ -1,13 +1,10 @@
 
 package loginandsignup;
 
-import DomainModels.QuanLy;
 import DomainModels.TaiKhoan;
 import DomainModels.TTNhap;
-import Service.impl.QuanLy_Service_impl;
 import Service.impl.TK_Service_impl;
 import Service.impl.TTNhap_Service_impl;
-import Services.QuanLyService;
 import Services.TKService;
 import Utilities.Auth;
 import com.raven.form.Form_TraCuu;
@@ -19,7 +16,6 @@ import Services.TTNhapService;
 public class Login extends javax.swing.JFrame {
     TTNhapService ttNhapService = new TTNhap_Service_impl();
     TKService tkService = new TK_Service_impl();
-    QuanLyService quanLyService = new QuanLy_Service_impl();
   
     public Login() {
         initComponents();

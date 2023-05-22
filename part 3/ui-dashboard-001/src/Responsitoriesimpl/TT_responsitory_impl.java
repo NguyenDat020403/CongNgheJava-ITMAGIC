@@ -24,7 +24,7 @@ public class TT_responsitory_impl implements TTResponsitory{
                 + "                 \n"
                 + "                 FROM ThongTinHienThi\n"
                 + "                 JOIN CK ON ThongTinHienThi.IDCK = CK.SoCK\n"
-                + "                 JOIN SoChuDao ON ThongTinHienThi.IDSCD = SoChuDao.ID\n"
+                + "                 JOIN SoChuDao ON ThongTinHienThi.IDSCD = SoChuDao.soCD\n"
                 + "                 JOIN ThongTinNhap ON ThongTinHienThi.IDThongTinNhap = ThongTinNhap.ID";
         ArrayList<TTViewModel> thongTinList = new ArrayList<>();
         ResultSet rs = JDBC_helper.selectGenerality(sql); // duyệt và lưu trữ các kết quả từ một câu lệnh SQL SELECT
@@ -72,7 +72,7 @@ public class TT_responsitory_impl implements TTResponsitory{
                 + "                 \n"
                 + "                 FROM ThongTinHienThi\n"
                 + "                 JOIN CK ON ThongTinHienThi.IDCK = CK.SoCK\n"    
-                + "                 JOIN SoChuDao ON ThongTinHienThi.IDSCD = SoChuDao.ID\n"
+                + "                 JOIN soChuDao ON ThongTinHienThi.IDSCD = soChuDao.soCD\n"
                 + "                 JOIN ThongTinNhap ON ThongTinHienThi.IDThongTinNhap = ThongTinNhap.ID  WHERE EmailUser LIKE ? OR NAME LIKE ?  ";
         ResultSet rs = JDBC_helper.selectGenerality(query, "%" + Email + "%", "%" + Name + "%");
         try {
@@ -105,15 +105,14 @@ public class TT_responsitory_impl implements TTResponsitory{
     @Override
     public int creat(ThongTinTraCuu tt) {
         String sql = "INSERT INTO [dbo].[ThongTinHienThi]\n"
-                + "           ([ID]\n"
-                + "           ,[IDSCD]\n"
+                + "           ([IDSCD]\n"
                 + "           ,[IDCK]\n"
                 + "           ,[IDThongTinNhap]\n"
                 + "           ,[NgayTraCuu]\n"
                 + "           ,[IDCSN]\n"
                 + "           ,[IDCST])\n"
-                + "     VALUES(?,?,?,?,?,?,?)";
-        return JDBC_helper.updateTongQuat(sql, tt.getID(), tt.getIDSCD(), tt.getIDCK(), tt.getIDThongTinNhap(), tt.getNgayTraCuu()
+                + "     VALUES(?,?,?,?,?,?)";
+        return JDBC_helper.updateTongQuat(sql,  tt.getIDSCD(), tt.getIDCK(), tt.getIDThongTinNhap(), tt.getNgayTraCuu()
         , tt.getIDSCN(), tt.getIDSCT());
     }
 }

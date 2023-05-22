@@ -613,7 +613,14 @@ public class Form_Admin extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_tableMouseClicked
+    public static void main(String args[]) {
 
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Form_ThongTinChuKy().setVisible(true);
+            }
+        });
+    }
     private void txtSLTraCuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSLTraCuuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSLTraCuuActionPerformed

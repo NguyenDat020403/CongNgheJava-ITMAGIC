@@ -82,16 +82,16 @@ public class Form_ThongTinChuKy extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/chuky.png"))); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("UTM Impact", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Đường tình:");
 
-        jLabel3.setFont(new java.awt.Font("UTM Impact", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Biện pháp:");
 
-        jLabel4.setFont(new java.awt.Font("UTM Impact", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Nội dung:");
 
-        jLabel5.setFont(new java.awt.Font("UTM Impact", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setText("Số chu kỳ:");
 
         txtSCK.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -172,7 +172,6 @@ public class Form_ThongTinChuKy extends javax.swing.JFrame {
         panelThanSoHoc1Layout.setHorizontalGroup(
             panelThanSoHoc1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelThanSoHoc1Layout.createSequentialGroup()
-<<<<<<< HEAD
                 .addGroup(panelThanSoHoc1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelThanSoHoc1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -183,16 +182,6 @@ public class Form_ThongTinChuKy extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addComponent(txtThanSoHoc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 15, Short.MAX_VALUE)))
-=======
-                .addGap(20, 20, 20)
-                .addComponent(txtThanSoHoc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panelThanSoHoc1Layout.createSequentialGroup()
-                .addGap(163, 163, 163)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Exit)
->>>>>>> ae17698507dee66cc98f3865d45280e8794cae59
                 .addContainerGap())
         );
         panelThanSoHoc1Layout.setVerticalGroup(
@@ -204,11 +193,7 @@ public class Form_ThongTinChuKy extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtThanSoHoc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-=======
-                .addContainerGap(19, Short.MAX_VALUE))
->>>>>>> ae17698507dee66cc98f3865d45280e8794cae59
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -1,39 +1,31 @@
-﻿--create database ThanSoHoc2
---use ThanSoHoc2
+﻿CREATE DATABASE thanSoHoc;
+USE thanSoHoc
 
-CREATE TABLE TaiKhoan(
-	TK NVARCHAR(50) PRIMARY KEY NOT NULL,
-	MK NVARCHAR(50) ,
-	ChucVu NVARCHAR(50),
+CREATE TABLE ChiSoThang(
+	ID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
 )
 
-CREATE TABLE Users(
-	ID INT  IDENTITY(1,1) PRIMARY KEY NOT NULL,
-	MaUser NVARCHAR(50) NOT NULL,
-	Name NVARCHAR(50),
-	Ngay INT,
-	Thang INT,
-	Nam INT,
-	Sex NVARCHAR(50),
-	FTK NVARCHAR(50),
-	FOREIGN KEY(FTK) REFERENCES TaiKhoan(TK),
+CREATE TABLE ChiSoNam(
+	ID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	ChiSoNam NVARCHAR(50),
+	SuKhoiDau NVARCHAR(4000),
+	SuDocLap NVARCHAR(4000),
+	NhanThuc NVARCHAR(4000)
+)
+CREATE TABLE NguoiNoiTieng(
+	MaSCD NVARCHAR(50) PRIMARY KEY NOT NULL,
+	SuNghiep NVARCHAR(500),
+	Ten NVARCHAR(500)
 )
 
-
-CREATE TABLE QuanLy (
-	ID INT  IDENTITY(1,1) PRIMARY KEY NOT NULL,
-	MaQL NVARCHAR(50) NOT NULL,
-	TenQL NVARCHAR(50),
-	Ngay INT,
-	Thang INT,
-	Nam INT,
-	FTK NVARCHAR(50),
-	FOREIGN KEY(FTK) REFERENCES TaiKhoan(TK), 
+CREATE TABLE ThongTinVIP(
+	ID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	FTK NVARCHAR(50) UNIQUE,
+	SL INT,
 )
 
 CREATE TABLE soChuDao (
-	ID INT  IDENTITY(1,1) PRIMARY KEY NOT NULL,
-	SoCD NVARCHAR(500) UNIQUE,
+	SoCD NVARCHAR(50) PRIMARY KEY NOT NULL,
 	NDCD NVARCHAR(500),
 	DiemManh NVARCHAR(500),
 	DiemYeu NVARCHAR(500),
@@ -41,27 +33,72 @@ CREATE TABLE soChuDao (
 )
 
 create table CK(
-	ID INT  IDENTITY(1,1) PRIMARY KEY NOT NULL,
-	SoCK NVARCHAR(50) NOT NULL,
+	SoCK NVARCHAR(50) PRIMARY KEY NOT NULL,
 	ND NVARCHAR(500),
 	BienPhap NVARCHAR(500),
 	TinhYeu NVARCHAR(500),
 )
 
+CREATE TABLE TaiKhoan(
+	TK NVARCHAR(50) PRIMARY KEY NOT NULL,
+	MK NVARCHAR(50) ,
+	ChucVu NVARCHAR(50),
+	Email NVARCHAR(50) UNIQUE,
+	Ten NVARCHAR(50),
+	Ngay INT,
+	Thang INT,
+	Nam INT,
+	SLTraCuu INT,
+)
+
+CREATE TABLE ThongTinNhap(
+	ID INT  IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	EmailUser NVARCHAR(50) UNIQUE NOT NULL,
+	Name NVARCHAR(50),
+	Ngay INT,
+	Thang INT,	
+	Nam INT,
+	Sex NVARCHAR(50),
+	SDT INT,
+	FTK NVARCHAR(50),
+	FOREIGN KEY(FTK) REFERENCES TaiKhoan(TK),
+)
+
+
+
 CREATE TABLE ThongTinHienThi(
 	ID INT  IDENTITY(1,1) PRIMARY KEY NOT NULL,
-	IDSCD INT,
-	IDCK INT,
-	IDUsers INT,
+	IDSCD NVARCHAR(50),
+	IDCK NVARCHAR(50),
+	IDThongTinNhap INT,
+	NgayTraCuu DATE,
+	IDCSN INT,
+	IDCST INT,
 
-	FOREIGN KEY(IDSCD) REFERENCES soChuDao(ID),
-	FOREIGN KEY(IDCK) REFERENCES CK(ID),
-	FOREIGN KEY(IDUsers) REFERENCES Users(ID),
+	FOREIGN KEY(IDSCD) REFERENCES soChuDao(soCD),
+	FOREIGN KEY(IDCK) REFERENCES CK(SoCK),
+	FOREIGN KEY(IDThongTinNhap) REFERENCES ThongTinNhap(ID),
+	FOREIGN KEY(IDCSN) REFERENCES ChiSoNam(ID),
+	FOREIGN KEY(IDCST) REFERENCES ChiSoThang(ID),
+
 )
-INSERT INTO TaiKhoan(TK,MK,ChucVu)
+
+
+
+
+
+INSERT INTO NguoiNoiTieng(Ten, SuNghiep, MaSCD)
 VALUES 
-('cun123', '123', 'admin'),
-('sieucute', '123', 'user');
+('Barack Obama ', 'Lãnh đạo, doanh nhân, người sáng tạo, nhà hoạt động xã hội.', '1'),
+('Oprah Winfrey ', 'Lãnh đạo, nhà sản xuất phim, nghệ sĩ, nhà tâm lý học.', '11'),
+('John Lennon ', 'Nghệ sĩ, nhà thiết kế, giáo viên, nhà từ thiện.', '2'),
+('Walt Disney ', 'Nghệ sĩ, nhà sản xuất, nhà văn, diễn viên.', '3'),
+(' Bill Gates ', 'Kỹ sư, nhà thiết kế, nhà kinh doanh, nhà khoa học.', '4'),
+('Angelina Jolie', 'Nhà hoạt động xã hội, nhà sản xuất phim, nhà thiết kế, phi công.', '5'),
+(' John F. Kennedy ', 'Y tá, chính trị gia, nghệ sĩ, nhà thiết kế thời trang.', '6'),
+(' Albert Einstein ', 'Nhà khoa học, nhà tư tưởng, nhà văn, nhà nghiên cứu tâm lý.', '7'),
+('Bill Clinton  ', ' Nhà kinh doanh, nhà đầu tư, nhà quản lý, vận động viên chuyên nghiệp', '8'),
+('Bob Marley  ', 'Nhà hoạt động xã hội, nhạc sĩ, nhà thiết kế, nhà từ thiện.', '9');
 
 
 INSERT INTO CK( SoCK, ND, BienPhap, TinhYeu)
@@ -109,10 +146,6 @@ VALUES
 'Người có số vận hạn là 9 có thể có khuynh hướng tự ái và cảm thấy mình là người độc đoán. Họ có thể gặp khó khăn trong việc chấp nhận sự thay đổi và phải đối mặt với những điều không như mong đợi.',
 'Những người có số chu kỳ vận số 9 thường rất đam mê và có tình cảm sâu sắc. Bạn có thể có xu hướng lãng mạn và tìm kiếm mối quan hệ tình cảm đầy yêu thương và cảm thông. Tuy nhiên, Bạn cũng có thể cảm thấy khó khăn khi phải đối mặt với sự không công bằng và thiếu hiểu biết trong mối quan hệ. Bạn cần tìm một người đối tác đủ thông minh và đáng tin cậy để chia sẻ mối quan tâm của mình và đồng cảm với Bạn.');
 
-INSERT INTO QuanLy(EmailQL, TenQL, Ngay, Thang, Nam, FTK)
-VALUES
-('QL001','Nguyen Van A','1','12','2003','cun123'),
-('QL002','Nguyen Van b','1','11','2003','cun123');
 
 INSERT INTO soChuDao(SoCD, NDCD, DiemManh, DiemYeu, TinhCach)
 VALUES
@@ -175,7 +208,35 @@ VALUES
 'Tính nhạy cảm và bất ổn. Bạn có thể dễ cảm động và khó kiểm soát được tâm trạng. Tính bất ổn có thể khiến bạn dễ bị phân tâm và khó tập trung vào mục tiêu của mình.', 
 'Cẩn thận - Cầu toàn - Thực tế' );
 
-INSERT INTO Users(MaUser, Name, Ngay, Thang, Nam, Sex, FTK)
+
+INSERT INTO TaiKhoan(TK,MK,ChucVu,Email, Ten, Ngay, Thang,Nam, SLTraCuu)
 VALUES 
-('tranthib@gmail.com', 'Tran Thi B', '2', '3', '2003', 'Nu' ,'sieucute'),
-('tranthia@gmail.com', 'Tran Thi A', '2', '4', '2003', 'Nu' ,'sieucute');
+('cun123', '123', 'admin', 'PHAMPHUTAN@gmail.com', 'Phạm Phú Tân', '01', '02', '2003', '0'),
+('sieucute', '123', 'user', 'thaivu@gmail.com', 'Phạm Phú Tân', '01', '02', '2003', '0');
+
+INSERT INTO ThongTinNhap(EmailUser, Name, Ngay, Thang, Nam, Sex, SDT,FTK)
+VALUES 
+('tranthib@gmail.com', 'Tran Thi B', '2', '3', '2003', 'Nu' ,'03251325','sieucute'),
+('tranthia@gmail.com', 'Tran Thi A', '2', '4', '2003', 'Nu' ,'03251325','sieucute');
+
+INSERT INTO ThongTinHienThi(IDSCD, IDCK, IDThongTinNhap, NgayTraCuu)
+VALUES
+('1', '3', '1', '2023-05-21'),
+('2', '4', '2', '2023-05-21');
+
+INSERT INTO ThongTinVIP( FTK, SL)
+VALUES
+('sieucute', '3'),
+('cun123', '3');
+
+INSERT INTO ChiSoNam( ChiSoNam, SuKhoiDau, SuDocLap, NhanThuc)
+VALUES
+('sieucute', '3'),
+('cun123', '3');
+
+INSERT INTO ChiSoThang( ID)
+VALUES
+('sieucute', '3'),
+('cun123', '3');
+
+
