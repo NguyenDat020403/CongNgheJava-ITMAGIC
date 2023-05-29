@@ -29,14 +29,15 @@ public class Menu extends javax.swing.JPanel {
     }
 
     private void init() {
-        listMenu1.addItem(new Model_Menu("1", "Home", Model_Menu.MenuType.MENU));
-        listMenu1.addItem(new Model_Menu("2", "Admin", Model_Menu.MenuType.MENU));
-        listMenu1.addItem(new Model_Menu("3", "User", Model_Menu.MenuType.MENU));
+        listMenu1.addItem(new Model_Menu("home", "Home", Model_Menu.MenuType.MENU));
+        listMenu1.addItem(new Model_Menu("admin", "Admin", Model_Menu.MenuType.MENU));
+        listMenu1.addItem(new Model_Menu("user", "User", Model_Menu.MenuType.MENU));
         listMenu1.addItem(new Model_Menu("4", "Algorithm", Model_Menu.MenuType.MENU));
+        listMenu1.addItem(new Model_Menu("chart", "Chart", Model_Menu.MenuType.MENU));
 
         listMenu1.addItem(new Model_Menu("", " ", Model_Menu.MenuType.EMPTY));
 
-        listMenu1.addItem(new Model_Menu("10", "Logout", Model_Menu.MenuType.MENU));
+        listMenu1.addItem(new Model_Menu("login", "Logout", Model_Menu.MenuType.MENU));
         listMenu1.addItem(new Model_Menu("", "", Model_Menu.MenuType.EMPTY));
     }
 
@@ -52,7 +53,7 @@ public class Menu extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/logo.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/LOGO no t65.png"))); // NOI18N
         jLabel1.setText("  IT Magic");
 
         javax.swing.GroupLayout panelMovingLayout = new javax.swing.GroupLayout(panelMoving);
@@ -84,7 +85,7 @@ public class Menu extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelMoving, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
-                .addComponent(listMenu1, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE))
+                .addComponent(listMenu1, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

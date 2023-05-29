@@ -110,6 +110,7 @@ public class Form_ThongTinTraCuu extends javax.swing.JFrame {
         setUndecorated(true);
 
         txtName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtName.setBorder(null);
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,6 +136,7 @@ public class Form_ThongTinTraCuu extends javax.swing.JFrame {
         );
 
         txtNgay.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtNgay.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNgay.setBorder(null);
         txtNgay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,6 +177,9 @@ public class Form_ThongTinTraCuu extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Điểm mạnh:");
 
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
         txtTinhCach.setColumns(20);
         txtTinhCach.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtTinhCach.setRows(5);
@@ -182,16 +187,23 @@ public class Form_ThongTinTraCuu extends javax.swing.JFrame {
         txtTinhCach.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane1.setViewportView(txtTinhCach);
 
+        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
         txtND.setColumns(20);
         txtND.setRows(5);
         txtND.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jScrollPane2.setViewportView(txtND);
+
+        jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         txtDiemManh.setColumns(20);
         txtDiemManh.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtDiemManh.setRows(5);
         txtDiemManh.setBorder(null);
         jScrollPane3.setViewportView(txtDiemManh);
+
+        jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane5.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         txtDiemYeu.setBorder(null);
         txtDiemYeu.setColumns(20);

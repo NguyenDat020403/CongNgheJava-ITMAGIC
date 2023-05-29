@@ -74,6 +74,8 @@ public class TTNhap_reponsitory_impl implements TTNhapResponsitory{
 "      ,[Name] = ?\n" +
 "      ,ThongTinNhap.Ngay = ?\n" +
 "      ,ThongTinNhap.Thang = ?\n" +
+                
+                 
 "      ,ThongTinNhap.Nam = ?\n" +
 "      ,[Sex] = ?\n" +
 "      ,[SDT] = ?\n" +

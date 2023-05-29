@@ -5,6 +5,7 @@ import com.raven.form.Form_Admin;
 import com.raven.form.Form_User;
 import com.raven.form.Form_SCD;
 import com.raven.form.Form_Home;
+import com.raven.form.Form_Chart;
 import java.awt.Color;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
@@ -15,7 +16,8 @@ public class Main extends javax.swing.JFrame {
     private Form_Admin form1;
     private Form_User form2;
     private Form_SCD form3;
-
+    private Form_Chart form4;
+    
     public Main() {
         initComponents();
         setBackground(new Color(0, 0, 0, 0));
@@ -23,6 +25,7 @@ public class Main extends javax.swing.JFrame {
         form1 = new Form_Admin();
         form2 = new Form_User();
         form3 = new Form_SCD();
+        form4 = new Form_Chart();
         menu.initMoving(Main.this);
         menu.addEventMenuSelected(new EventMenuSelected() {
             @Override
@@ -35,7 +38,9 @@ public class Main extends javax.swing.JFrame {
                     setForm(form2);
                 } else if (index == 3) {
                     setForm(form3);
-                } else if (index == 5) {
+                } else if (index == 4) {
+                    setForm(form4);
+                } else if (index == 6) {
                     int option = JOptionPane.showConfirmDialog(Main.this, "Do you really want to exit?", "IT_Magic", JOptionPane.YES_NO_OPTION);
                     if (option == JOptionPane.YES_OPTION) {
                         System.exit(0);
@@ -75,11 +80,11 @@ public class Main extends javax.swing.JFrame {
             .addGroup(panelBorder1Layout.createSequentialGroup()
                 .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1211, Short.MAX_VALUE))
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1215, Short.MAX_VALUE))
         );
         panelBorder1Layout.setVerticalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 601, Short.MAX_VALUE)
             .addComponent(mainPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 

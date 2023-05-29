@@ -51,7 +51,8 @@ public class ForgetPass extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        btnOTP = new javax.swing.JButton();
+        btnCheck = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -74,11 +75,11 @@ public class ForgetPass extends javax.swing.JFrame {
 
         txtTK.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        btnChange.setBackground(new java.awt.Color(255, 255, 255));
+        btnChange.setBackground(new java.awt.Color(152, 2, 171));
         btnChange.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnChange.setForeground(new java.awt.Color(152, 2, 171));
         btnChange.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnChange.setText("Change");
-        btnChange.setBorder(new javax.swing.border.MatteBorder(null));
         btnChange.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnChangeMouseClicked(evt);
@@ -113,14 +114,14 @@ public class ForgetPass extends javax.swing.JFrame {
                                 .addComponent(txtgetEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelBorder1Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
+                        .addGap(95, 95, 95)
                         .addComponent(txtbugPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtMK, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtMK2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTK, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtMK, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+                            .addComponent(txtTK, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtMK2, javax.swing.GroupLayout.Alignment.LEADING)))
                     .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addGap(63, 63, 63)
                         .addComponent(jLabel2))
@@ -132,7 +133,7 @@ public class ForgetPass extends javax.swing.JFrame {
         panelBorder1Layout.setVerticalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBorder1Layout.createSequentialGroup()
-                .addContainerGap(94, Short.MAX_VALUE)
+                .addContainerGap(96, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(43, 43, 43)
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -177,10 +178,19 @@ public class ForgetPass extends javax.swing.JFrame {
 
         jLabel5.setText("Enter your Email");
 
-        btnOTP.setText("Sent OTP");
-        btnOTP.addActionListener(new java.awt.event.ActionListener() {
+        btnCheck.setText("Check Email");
+        btnCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOTPActionPerformed(evt);
+                btnCheckActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Open Login?");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
             }
         });
 
@@ -192,22 +202,24 @@ public class ForgetPass extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addGap(40, 40, 40))
-            .addGroup(RightLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RightLayout.createSequentialGroup()
                 .addContainerGap(107, Short.MAX_VALUE)
                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(104, 104, 104))
+            .addGroup(RightLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(RightLayout.createSequentialGroup()
                 .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(RightLayout.createSequentialGroup()
                         .addGap(156, 156, 156)
                         .addComponent(jLabel5))
                     .addGroup(RightLayout.createSequentialGroup()
-                        .addGap(161, 161, 161)
-                        .addComponent(btnOTP)))
+                        .addGap(151, 151, 151)
+                        .addComponent(btnCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         RightLayout.setVerticalGroup(
@@ -220,10 +232,12 @@ public class ForgetPass extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnOTP)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCheck)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
                 .addComponent(jLabel7)
-                .addGap(78, 78, 78))
+                .addGap(27, 27, 27)
+                .addComponent(jLabel4)
+                .addGap(35, 35, 35))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -258,7 +272,10 @@ public class ForgetPass extends javax.swing.JFrame {
             sb.append("Bạn chưa nhập 'Tài khoản'");
         } else if (txtMK.getPassword().equals("")) {
             sb.append("Bạn chưa nhập 'Mật khẩu'");
-        }
+        } else if (txtMK.getPassword().equals(txtMK2.getPassword())) {
+            sb.append("Nhập lại mật khẩu mới chưa chính xác.");
+        } 
+        
         if (Check() != 1) {
             JOptionPane.showConfirmDialog(this, "Tài khoản hoặc Email sai", "ERROR!", JOptionPane.ERROR_MESSAGE);
             return;
@@ -289,9 +306,17 @@ public class ForgetPass extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMKActionPerformed
 
-    private void btnOTPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOTPActionPerformed
-                txtgetEmail.setText(txtEmail.getText());
-    }//GEN-LAST:event_btnOTPActionPerformed
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        Login LoginFrame = new Login();
+        LoginFrame.setVisible(true);
+        LoginFrame.pack();
+        LoginFrame.setLocationRelativeTo(null);
+        this.dispose(); 
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
+        txtgetEmail.setText(txtEmail.getText());
+    }//GEN-LAST:event_btnCheckActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -304,11 +329,12 @@ public class ForgetPass extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Right;
     private javax.swing.JLabel btnChange;
-    private javax.swing.JButton btnOTP;
+    private javax.swing.JButton btnCheck;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

@@ -13,6 +13,7 @@ import Services.TTNhapService;
 import Services.TTService;
 import View_Model.TTViewModel;
 import java.time.LocalDate;
+import loginandsignup.Login;
 
 public class Form_TraCuu extends javax.swing.JFrame {
     List<TTViewModel> ListTT;
@@ -61,6 +62,7 @@ public class Form_TraCuu extends javax.swing.JFrame {
         txtThang = new javax.swing.JTextField();
         txtNam = new javax.swing.JTextField();
         btnTraCuu = new com.raven.swing.Button();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -248,6 +250,13 @@ public class Form_TraCuu extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/icons8-exit-1.png"))); // NOI18N
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelThanSoHoc2Layout = new javax.swing.GroupLayout(panelThanSoHoc2);
         panelThanSoHoc2.setLayout(panelThanSoHoc2Layout);
         panelThanSoHoc2Layout.setHorizontalGroup(
@@ -267,11 +276,17 @@ public class Form_TraCuu extends javax.swing.JFrame {
                         .addGap(172, 172, 172)
                         .addComponent(btnTraCuu, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(278, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelThanSoHoc2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addContainerGap())
         );
         panelThanSoHoc2Layout.setVerticalGroup(
             panelThanSoHoc2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelThanSoHoc2Layout.createSequentialGroup()
-                .addGap(82, 82, 82)
+                .addContainerGap()
+                .addComponent(jLabel7)
+                .addGap(60, 60, 60)
                 .addComponent(txtThanSoHoc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txtThanSoHoc2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -283,7 +298,7 @@ public class Form_TraCuu extends javax.swing.JFrame {
                 .addGroup(panelThanSoHoc2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtThanSoHoc5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtThanSoHoc6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(btnTraCuu, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55))
         );
@@ -432,6 +447,14 @@ public class Form_TraCuu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
 
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        Login LoginFrame = new Login();
+        LoginFrame.setVisible(true);
+        LoginFrame.pack();
+        LoginFrame.setLocationRelativeTo(null);
+        this.dispose(); 
+    }//GEN-LAST:event_jLabel7MouseClicked
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -449,6 +472,7 @@ public class Form_TraCuu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField jTextField4;
     private com.raven.swing.PanelThanSoHoc panelThanSoHoc2;
     private javax.swing.JTextField txtEmail;
