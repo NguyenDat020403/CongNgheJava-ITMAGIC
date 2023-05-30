@@ -4,10 +4,6 @@ import DomainModels.TTNhap;
 import View_Model.TTNhapViewModel;
 import java.util.List;
 
-/**
- *
- * @author admin xu li chuc nang, phuong thuc
- */
 public interface TTNhapResponsitory {
 
     List<TTNhapViewModel> getALL();

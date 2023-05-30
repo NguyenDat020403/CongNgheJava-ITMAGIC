@@ -316,6 +316,10 @@ public class ForgetPass extends javax.swing.JFrame {
 
     private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
         txtgetEmail.setText(txtEmail.getText());
+        if (Check() != 1) {
+            JOptionPane.showConfirmDialog(this, "Tài khoản hoặc Email sai", "ERROR!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
     }//GEN-LAST:event_btnCheckActionPerformed
 
     public static void main(String args[]) {

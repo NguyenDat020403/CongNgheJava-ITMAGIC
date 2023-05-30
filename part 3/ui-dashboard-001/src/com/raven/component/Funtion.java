@@ -109,10 +109,10 @@ public class Funtion extends javax.swing.JFrame {
             }
         });
 
-        jLabel18.setFont(new java.awt.Font("Segoe UI Emoji", 3, 12)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("SVN-Linux Libertine", 3, 12)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(153, 204, 255));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("IT-Mâgic");
+        jLabel18.setText("IT-MAGIC");
 
         txtMK.setToolTipText("");
         txtMK.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 204, 204)));
