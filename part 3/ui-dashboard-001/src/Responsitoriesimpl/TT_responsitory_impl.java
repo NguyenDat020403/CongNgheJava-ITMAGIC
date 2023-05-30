@@ -9,6 +9,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
+
 
 public class TT_responsitory_impl implements TTResponsitory{
 
@@ -39,6 +42,14 @@ public class TT_responsitory_impl implements TTResponsitory{
                 String sck = rs.getString("soCK");
                 String tk = rs.getString("FTK");
                 Date date = rs.getDate("NgayTraCuu");
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(date);
+                
+                // Cộng thêm 2 ngày
+                calendar.add(Calendar.DAY_OF_MONTH, 2);
+                
+                Date date1 = calendar.getTime();
+               
                 
                 //lưu dữ liệu và
                 thongTin.setEmailUser(Email);
@@ -46,7 +57,7 @@ public class TT_responsitory_impl implements TTResponsitory{
                 thongTin.setFTK(tk);
                 thongTin.setSoCD(scd);
                 thongTin.setSoCK(sck);
-                thongTin.setNgayTraCuu(date);
+                thongTin.setNgayTraCuu(date1);
 
                 //thêm dữ liệu vào danh sách
                 thongTinList.add(thongTin);
@@ -84,14 +95,21 @@ public class TT_responsitory_impl implements TTResponsitory{
                 String sck = rs.getString("soCK");
                 String tk = rs.getString("FTK");
                 Date date = rs.getDate("NgayTraCuu");
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(date);
                 
+                // Cộng thêm 2 ngày
+                calendar.add(Calendar.DAY_OF_MONTH, 2);
+                
+                Date date1 = calendar.getTime();
+               
                 //lưu dữ liệu và
                 thongTin.setEmailUser(email);
                 thongTin.setName(ten);
                 thongTin.setFTK(tk);
                 thongTin.setSoCD(scd);
                 thongTin.setSoCK(sck);
-                thongTin.setNgayTraCuu(date);
+                thongTin.setNgayTraCuu(date1);
 
                 listTK.add(thongTin);
             }
