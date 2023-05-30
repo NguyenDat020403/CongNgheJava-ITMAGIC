@@ -18,12 +18,8 @@ public class Main extends javax.swing.JFrame {
     private Form_SCD form3;
     private Form_Chart form4;
     
-    
     public Main() {
         initComponents();
-        
-
-        
         
         setBackground(new Color(0, 0, 0, 0));
         home = new Form_Home();
@@ -31,11 +27,10 @@ public class Main extends javax.swing.JFrame {
         form2 = new Form_User();
         form3 = new Form_SCD();
         form4 = new Form_Chart();
-        
         menu.initMoving(Main.this);
         menu.addEventMenuSelected(new EventMenuSelected() {
             @Override
-            public void selected(int index) {
+            public void selected(int index ) {
                 if (index == 0) {
                     setForm(home);
                 } else if (index == 1) {

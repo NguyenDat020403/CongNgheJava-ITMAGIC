@@ -4,7 +4,6 @@ import DomainModels.TaiKhoan;
 import Service.impl.TK_Service_impl;
 import Services.TKService;
 import Utilities.Auth;
-import static Utilities.Auth.taiKhoan;
 import View_Model.TKViewModel;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -75,9 +74,9 @@ public class ForgetPass extends javax.swing.JFrame {
 
         txtTK.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        btnChange.setBackground(new java.awt.Color(135, 9, 146));
+        btnChange.setBackground(new java.awt.Color(152, 2, 171));
         btnChange.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnChange.setForeground(new java.awt.Color(135, 9, 146));
+        btnChange.setForeground(new java.awt.Color(152, 2, 171));
         btnChange.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnChange.setText("Change");
         btnChange.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -158,7 +157,7 @@ public class ForgetPass extends javax.swing.JFrame {
                 .addGap(51, 51, 51))
         );
 
-        Right.setBackground(new java.awt.Color(135, 9, 146));
+        Right.setBackground(new java.awt.Color(152, 2, 171));
         Right.setPreferredSize(new java.awt.Dimension(400, 500));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
@@ -315,11 +314,11 @@ public class ForgetPass extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
-        txtgetEmail.setText(txtEmail.getText());
         if (Check() != 1) {
             JOptionPane.showConfirmDialog(this, "Tài khoản hoặc Email sai", "ERROR!", JOptionPane.ERROR_MESSAGE);
             return;
-        }
+        } 
+        txtgetEmail.setText(txtEmail.getText());
     }//GEN-LAST:event_btnCheckActionPerformed
 
     public static void main(String args[]) {
