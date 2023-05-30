@@ -79,8 +79,5 @@ public class ThongTinTraCuu {
     public void setIDSCT(int IDSCT) {
         this.IDSCT = IDSCT;
     }
-
-
-
-    
+ 
 }
